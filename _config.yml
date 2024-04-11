@@ -4,12 +4,12 @@
 # ---------------------------------------------------------------
 
 # Site
-title: NexT
-subtitle:
+title: 森森嘟博客
+subtitle: 欢迎光临喵owo
 description:
-author: John Doe
+author: Chasen Kelp
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
-language: en
+language: zh-Hans
 date_format: '%Y-%m-%d'
 
 # URL
@@ -117,11 +117,11 @@ index_with_subtitle: false
 
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
-  home: /
-  #categories: /categories/
+  home: 首页
+  categories: 分类
   #about: /about/
-  archives: /archives/
-  tags: /tags/
+  archives: 归档
+  tags: 标签
   #sitemap: /sitemap.xml
   #commonweal: /404.html
 
