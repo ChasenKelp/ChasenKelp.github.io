@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+    <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="优势\r它是开源的。 易于使用: Semgrep 的语法简单直观，使用 YAML 或者纯文本格式的规则定义，使得规则编写和理解变得容易。用户可以根据特定的需求编写自定义规则，或者使用社区维护的规则库。 快速扫描: Semgrep 使用高效的静态分析算法，能够在大型代码库中进行快速扫描。它具有可扩展性，适用于小型项目和大型企业应用程序。 广泛的规则库: Semgrep 提供了一个丰富的规则库，涵盖了安全漏洞、常见的代码错误、最佳实践和性能问题等多个方面。用户可以直接使用这些规则，也可以根据自己的需求进行定制和扩展。 多语言支持: Semgrep 支持多种流行的编程语言，如 Python、JavaScript、Go、Java 等。这使得它成为跨多个技术栈的团队或项目的理想选择。 集成和扩展性: Semgrep 可以与各种 CI/CD 工具和代码编辑器集成，例如 GitLab、GitHub Actions、Jenkins 等。此外，Semgrep 还提供了 API 和 CLI 接口，使用户能够轻松集成到现有的工作流程中。 可定制性: Semgrep 允许用户根据自己的需求创建自定义规则。用户可以使用 Semgrep 提供的丰富的模式匹配语法来编写适合特定代码风格和规范的规则。 活跃的社区: Semgrep 拥有活跃的开源社区支持，社区维护了大量的规则库，并定期更新和改进 Semgrep 的功能和性能。•易于使用: Semgrep 的语法简单直观，使用 YAML 或者纯文本格式的规则定义，使得规则编写和理解变得容易。用户可以根据特定的需求编写自定义规则，或者使用社区维护的规则库。 Products 产品分类\r在运行Semgrep ci扫描的时候默认是同时使用了所有产品下的规则，但是用户可以通过指令更改来运行特定产品(如semgrep ci --code)。\nSemgrep OSS\rSemgrep OSS是一款快速、轻量级的程序分析工具，可帮助检测代码中的安全问题。使用的是 Semgrep 的 LGPL 2.1 开源引擎。\n注意：在集成方面，Semgrep OSS和Semgrep Code都可用于扫描本地代码，也可集成到 CI CD 管道中，自动对软件源进行持续扫描。由于Semgrep OSS 只能分析单个功能内的交互，称为程序内或单功能分析。但是，这意味着 Semgrep OSS 比 Semgrep Code 略快。\n">
 <title>SAST工具：Semgrep初期调研报告</title>
 
-<link rel='canonical' href='http://localhost:1313/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/'>
+<link rel='canonical' href='https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/'>
 
 <link rel="stylesheet" href="/scss/style.min.a71659c499b38b0b6b83e1f90a58ef5bdf87973698017bde66086e90b575013a.css"><meta property='og:title' content="SAST工具：Semgrep初期调研报告">
 <meta property='og:description' content="优势\r它是开源的。 易于使用: Semgrep 的语法简单直观，使用 YAML 或者纯文本格式的规则定义，使得规则编写和理解变得容易。用户可以根据特定的需求编写自定义规则，或者使用社区维护的规则库。 快速扫描: Semgrep 使用高效的静态分析算法，能够在大型代码库中进行快速扫描。它具有可扩展性，适用于小型项目和大型企业应用程序。 广泛的规则库: Semgrep 提供了一个丰富的规则库，涵盖了安全漏洞、常见的代码错误、最佳实践和性能问题等多个方面。用户可以直接使用这些规则，也可以根据自己的需求进行定制和扩展。 多语言支持: Semgrep 支持多种流行的编程语言，如 Python、JavaScript、Go、Java 等。这使得它成为跨多个技术栈的团队或项目的理想选择。 集成和扩展性: Semgrep 可以与各种 CI/CD 工具和代码编辑器集成，例如 GitLab、GitHub Actions、Jenkins 等。此外，Semgrep 还提供了 API 和 CLI 接口，使用户能够轻松集成到现有的工作流程中。 可定制性: Semgrep 允许用户根据自己的需求创建自定义规则。用户可以使用 Semgrep 提供的丰富的模式匹配语法来编写适合特定代码风格和规范的规则。 活跃的社区: Semgrep 拥有活跃的开源社区支持，社区维护了大量的规则库，并定期更新和改进 Semgrep 的功能和性能。•易于使用: Semgrep 的语法简单直观，使用 YAML 或者纯文本格式的规则定义，使得规则编写和理解变得容易。用户可以根据特定的需求编写自定义规则，或者使用社区维护的规则库。 Products 产品分类\r在运行Semgrep ci扫描的时候默认是同时使用了所有产品下的规则，但是用户可以通过指令更改来运行特定产品(如semgrep ci --code)。\nSemgrep OSS\rSemgrep OSS是一款快速、轻量级的程序分析工具，可帮助检测代码中的安全问题。使用的是 Semgrep 的 LGPL 2.1 开源引擎。\n注意：在集成方面，Semgrep OSS和Semgrep Code都可用于扫描本地代码，也可集成到 CI CD 管道中，自动对软件源进行持续扫描。由于Semgrep OSS 只能分析单个功能内的交互，称为程序内或单功能分析。但是，这意味着 Semgrep OSS 比 Semgrep Code 略快。\n">
-<meta property='og:url' content='http://localhost:1313/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/'>
+<meta property='og:url' content='https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/'>
 <meta property='og:site_name' content='仿生寿喜锅梦见赛博柚子醋'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='静态分析' /><meta property='article:tag' content='CS' /><meta property='article:published_time' content='2024-07-26T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-07-26T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="SAST工具：Semgrep初期调研报告">
@@ -942,7 +942,7 @@ fin.</p>
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.4af07bc4a07cf7a91bed78ee07375a30d59e84847757d257feb37acf90e3495d.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
