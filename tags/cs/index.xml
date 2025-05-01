@@ -8,51 +8,51 @@
         <language>zh-cn</language>
         <copyright>ChasenKelp</copyright>
         <lastBuildDate>Fri, 26 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/cs/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>代码审计工具学习记录</title>
-        <link>http://localhost:1313/p/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</link>
+        <title>SAST工具：Semgrep初期调研报告</title>
+        <link>http://localhost:1313/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/</link>
         <pubDate>Fri, 26 Jul 2024 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</guid>
-        <description>&lt;p&gt;在通读了官方文档后，有一些值得着重注意的点：主要产品都使用什么方法扫描？&lt;/p&gt;
-&lt;h2 id=&#34;优势&#34;&gt;优势
+        <guid>http://localhost:1313/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/</guid>
+        <description>&lt;h2 id=&#34;优势&#34;&gt;优势
 &lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;It is open source (free).&lt;/li&gt;
-&lt;li&gt;Supports many languages (go, python, java, javascript, php, and more).&lt;/li&gt;
-&lt;li&gt;There are about 1000 predefined rules you can use “out of the box”.&lt;/li&gt;
-&lt;li&gt;Does NOT require buildable source code.&lt;/li&gt;
-&lt;li&gt;There is no Domain Specific Language (DSL) to learn, you can make custom patterns to match the code you are targeting.&lt;/li&gt;
-&lt;li&gt;Easy to use for any developer, does not require expertise.&lt;/li&gt;
+&lt;li&gt;它是开源的。&lt;/li&gt;
+&lt;li&gt;易于使用: Semgrep 的语法简单直观，使用 YAML 或者纯文本格式的规则定义，使得规则编写和理解变得容易。用户可以根据特定的需求编写自定义规则，或者使用社区维护的规则库。&lt;/li&gt;
+&lt;li&gt;快速扫描: Semgrep 使用高效的静态分析算法，能够在大型代码库中进行快速扫描。它具有可扩展性，适用于小型项目和大型企业应用程序。&lt;/li&gt;
+&lt;li&gt;广泛的规则库: Semgrep 提供了一个丰富的规则库，涵盖了安全漏洞、常见的代码错误、最佳实践和性能问题等多个方面。用户可以直接使用这些规则，也可以根据自己的需求进行定制和扩展。&lt;/li&gt;
+&lt;li&gt;多语言支持: Semgrep 支持多种流行的编程语言，如 Python、JavaScript、Go、Java 等。这使得它成为跨多个技术栈的团队或项目的理想选择。&lt;/li&gt;
+&lt;li&gt;集成和扩展性: Semgrep 可以与各种 CI/CD 工具和代码编辑器集成，例如 GitLab、GitHub Actions、Jenkins 等。此外，Semgrep 还提供了 API 和 CLI 接口，使用户能够轻松集成到现有的工作流程中。&lt;/li&gt;
+&lt;li&gt;可定制性: Semgrep 允许用户根据自己的需求创建自定义规则。用户可以使用 Semgrep 提供的丰富的模式匹配语法来编写适合特定代码风格和规范的规则。&lt;/li&gt;
+&lt;li&gt;活跃的社区: Semgrep 拥有活跃的开源社区支持，社区维护了大量的规则库，并定期更新和改进 Semgrep 的功能和性能。•易于使用: Semgrep 的语法简单直观，使用 YAML 或者纯文本格式的规则定义，使得规则编写和理解变得容易。用户可以根据特定的需求编写自定义规则，或者使用社区维护的规则库。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;products-产品分类&#34;&gt;Products 产品分类
-&lt;/h2&gt;&lt;p&gt;Semgrep包含多重代码审计方法，包括SAST，SCA和Secrets。这些方式可以根据用户需要进行组合。此文档着重关注SAST方式。&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;在运行&lt;code&gt;Semgrep ci&lt;/code&gt;扫描的时候默认是同时使用了所有产品下的规则，但是用户可以通过指令更改来运行特定产品(如&lt;code&gt;semgrep ci --code&lt;/code&gt;)。&lt;/p&gt;
+&lt;h3 id=&#34;semgrep-oss&#34;&gt;Semgrep OSS
+&lt;/h3&gt;&lt;p&gt;Semgrep OSS是一款快速、轻量级的程序分析工具，可帮助检测代码中的安全问题。使用的是 Semgrep 的 LGPL 2.1 开源引擎。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;静态应用程序安全测试 SAST (Static Application Security Testing): 通过直接查看应用程序的源代码发现各种安全漏洞，以避免损失。SAST工具和扫描程序基本都是在应用程序代码完全编译之前使用，因此也可以将它们称为“白盒”工具。
-软件成分分析 SCA (Software Composition Analysis):&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;注意：在集成方面，Semgrep OSS和Semgrep Code都可用于扫描本地代码，也可集成到 CI CD 管道中，自动对软件源进行持续扫描。由于Semgrep OSS 只能分析单个功能内的交互，称为程序内或单功能分析。但是，这意味着 Semgrep OSS 比 Semgrep Code 略快。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;semgrep-code&#34;&gt;Semgrep Code
 &lt;/h3&gt;&lt;p&gt;一种静态应用安全测试（SAST）解决方案，除了Semgrep OSS之外，还使用了专有的Semgrep分析，如&lt;strong&gt;跨文件&lt;/strong&gt;（文件间）和&lt;strong&gt;跨功能&lt;/strong&gt;（文件内）数据流（cross-function or interprocedural analysis）。这使得真阳性率高于Semgrep OSS。
 使用方式为在线网站+命令行。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;真阳性率true positives rate: 检测出来的真阳性样本数除以所有真实阳性样本数。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Java 中的强类型与其编译时和运行时检查相结合，降低了利用整数或布尔输入执行注入式攻击的可能性。Semgrep Pro可以通过利用这些检查来减少误报。
-Semgrep OSS引擎根据模式进行匹配，这可能会导致误报（FPs），但只有专有的Semgrep能够检测布尔值和整数值，并将其标记为未受污染或安全，从而消除误报。&lt;/p&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;
-&lt;p&gt;Semgrep 代码使用&lt;strong&gt;Rules&lt;/strong&gt;（规则,封装模式匹配逻辑和数据流分析）来扫描代码，以查找安全问题、样式违规、漏洞等。只要发现代码与规则定义的模式相匹配，Semgrep就会生成并向用户报告发现的问题。&lt;/p&gt;
+&lt;p&gt;Semgrep Code使用&lt;strong&gt;Rules&lt;/strong&gt;（规则,封装模式匹配逻辑和数据流分析）来扫描代码，以查找安全问题、样式违规、漏洞等。只要发现代码与规则定义的模式相匹配，Semgrep就会生成并向用户报告发现的问题。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://semgrep.dev/r&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;官方规则注册表及社区&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;除了注册表中可用的规则之外，用户还可以编写&lt;strong&gt;自定义规则&lt;/strong&gt;，以确定Semgrep代码在软件仓库中检测到的内容。无论是使用已有规则，还是编写自定义规则，了解Semgrep代码运行的规则都有助于了解它是如何检测安全问题的。
 Semgrep Code是透明的，用户可以配置其运行的规则，并检查其语法，从而了解发现问题的方式。用户还可以自定义规则的内容，以提高规则的真阳性率，或让 Semgrep 向开发人员发送相关信息。&lt;/p&gt;
-&lt;h3 id=&#34;semgrep-oss&#34;&gt;Semgrep OSS
-&lt;/h3&gt;&lt;p&gt;Semgrep OSS是一款快速、轻量级的程序分析工具，可帮助检测代码中的安全问题。使用的是 Semgrep 的 LGPL 2.1 开源引擎。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;注意：在集成方面，Semgrep OSS和Semgrep Code都可用于扫描本地代码，也可集成到 CI/CD 管道中，自动对软件源进行持续扫描。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;注：Semgrep OSS指的是Semgrep的开源许可产品，可以使用OSS Engine和在Semgrep Registry中带&lt;strong&gt;开源许可&lt;/strong&gt;的规则，或者编写用户自己的自定义规则。总体而言，Semgrep OSS和Semgrep Pro的主要区别在于，Semgrep Pro包括更高级的分析和专有的Pro规则，而Semgrep OSS则主要使用开源许可的规则。&lt;/p&gt;
 &lt;h3 id=&#34;semgrep-secrets&#34;&gt;Semgrep Secrets
 &lt;/h3&gt;&lt;p&gt;Semgrep Secrets 扫描代码，检测暴露的 API 密钥、密码和其他凭证。一旦暴露，恶意行为者就会利用这些凭据泄露数据或访问敏感系统。Semgrep Secrets 可帮助用户确定:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;哪些Secrets已经提交到用户的存储库中。&lt;/li&gt;
 &lt;li&gt;Secrets的验证状态；例如，有效的Secrets是指那些经过网络服务测试并确认能够成功授予资源或身份验证的Secrets。它们正在使用中。&lt;/li&gt;
 &lt;li&gt;对于 GitHub 存储库：公共或私有存储库中是否存在凭证。
-Semgrep通过优先处理有效的泄露Secrets，并在开发人员的PR和MR中直接发布评论，告知开发人员有效的Secrets，从而节省安全工程师的时间和精力。&lt;/li&gt;
+Semgrep通过优先处理有效的泄露Secrets，并在开发人员的PR和MR中直接发布评论，告知开发人员有效的Secrets，从而节省安全工程师的时间和精力。
+注：所有验证 （如 API 调用） 都在用户的环境中本地完成。不会向 Semgrep 服务器发送任何令牌。
+采用的方法包括：&lt;/li&gt;
+&lt;li&gt;使用正则表达式搜索&lt;/li&gt;
+&lt;li&gt;语义分析&lt;/li&gt;
+&lt;li&gt;验证&lt;/li&gt;
+&lt;li&gt;熵分析&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;semgrep-supply-chain&#34;&gt;Semgrep Supply Chain
 &lt;/h3&gt;&lt;p&gt;Semgrep Supply Chain 是一款软件构成分析（SCA）工具，可检测代码库中由开源依赖关系引入的安全漏洞。它还可以:&lt;/p&gt;
@@ -63,31 +63,113 @@ Semgrep通过优先处理有效的泄露Secrets，并在开发人员的PR和MR�
 Semgrep Supply Chain（Semgrep供应链管理软件）能够分析锁定文件（lockfile）中的依赖关系，然后根据锁定文件扫描用户的代码库，查找可达到的结果。某些语言（如 Java）有多个受支持的锁文件，这取决于用户的软件包管理器。要使用Semgrep Supply Chain扫描锁文件，该文件必须具有其中一个支持的锁文件名。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;language-support-支持语言&#34;&gt;Language support 支持语言
-&lt;/h2&gt;&lt;h4 id=&#34;semgrep-code-1&#34;&gt;Semgrep Code
-&lt;/h4&gt;&lt;p&gt;Maturity level 成熟等级 GA(Parse Rate 99%+): C, C++, C#, Go, Java, JavaScript, Kotlin, Python, TypeScript, Ruby, Rust, JSX, PHP, Scala, Swift, Generic, JSON, Terraform&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;成熟等级解释：
+&lt;img src=&#34;http://localhost:1313/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912185025.png&#34;
+	width=&#34;1226&#34;
+	height=&#34;764&#34;
+	srcset=&#34;http://localhost:1313/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912185025_hu_878c70dac3a953f.png 480w, http://localhost:1313/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912185025_hu_e00c06be591bdfc5.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;160&#34;
+		data-flex-basis=&#34;385px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;semgrep-oss-1&#34;&gt;Semgrep OSS
+&lt;/h3&gt;&lt;p&gt;Bash, C, C++, C#, Cairo, Clojure, Dart, Dockerfile, Generic, Go, Hack, HTML, Java, JavaScript, JSON, Jsonnet, Julia, Lisp, Lua, Kotlin, Ruby, Rust, JSX, OCaml, PHP, Python, R, Scala, Scheme, Solidity, Swift, TypeScript, YAML, XML&lt;/p&gt;
+&lt;h3 id=&#34;semgrep-code-1&#34;&gt;Semgrep Code
+&lt;/h3&gt;&lt;p&gt;Maturity level 成熟等级 GA(Parse Rate 99%+): C, C++, C#, Go, Java, JavaScript, Kotlin, Python, TypeScript, Ruby, Rust, JSX, PHP, Scala, Swift, Generic, JSON, Terraform&lt;/p&gt;
 &lt;p&gt;Maturity level 成熟等级 BETA(Parse Rate 95%+): Apex, Elixir&lt;/p&gt;
 &lt;p&gt;Maturity level 成熟等级 Experimental(Parse Rate 90%+): Bash, Cairo, Clojure, Dart, Dockerfile, Hack, HTML, Jsonnet, Julia, Lisp, Lua, Ocaml, R, Scheme, Solidity, YAML, XML&lt;/p&gt;
-&lt;h4 id=&#34;semgrep-oss-1&#34;&gt;Semgrep OSS
-&lt;/h4&gt;&lt;p&gt;Bash, C, C++, C#, Cairo, Clojure, Dart, Dockerfile, Generic, Go, Hack, HTML, Java, JavaScript, JSON, Jsonnet, Julia, Lisp, Lua, Kotlin, Ruby, Rust, JSX, OCaml, PHP, Python, R, Scala, Scheme, Solidity, Swift, TypeScript, YAML, XML&lt;/p&gt;
-&lt;h4 id=&#34;semgrep-supply-chain-1&#34;&gt;Semgrep Supply Chain
-&lt;/h4&gt;&lt;p&gt;对于某些语言，如JavaScript和Python，还需要对清单文件（manifest file）进行解析，以确定反式性（transitivity）。&lt;/p&gt;
+&lt;h3 id=&#34;semgrep-supply-chain-1&#34;&gt;Semgrep Supply Chain
+&lt;/h3&gt;&lt;p&gt;对于某些语言，如JavaScript和Python，还需要对清单文件（manifest file）进行解析，以确定反式性（transitivity）。&lt;/p&gt;
 &lt;p&gt;Maturity level 成熟等级 GA(Parse Rate 99%+): C#(NuGet), Go(Go modules), Java(Gradle, Maven), JavaScript or TypeScript(npm, Yarn, Yarn 2, Yarn 3, pnpm), Python(pip, pip-tools, Pipenv, Poetry), Ruby(RubyGems)
 Maturity level 成熟等级 Lockfile-only: Rust(Cargo§), Dart(Pub), Elixir(Hex), Kotlin(Gradle, Maven), PHP(Composer), Scala(Maven), Swift(SwiftPM)&lt;/p&gt;
-&lt;h2 id=&#34;如何使用semgrep进行扫描wsl&#34;&gt;如何使用Semgrep进行扫描（WSL）
-&lt;/h2&gt;&lt;p&gt;由于我只有Windows设备，而本地的Semgrep及Ocaml都还不支持Windows，于是使用内置WSL服务。安装教程可查阅微软&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/zh-cn/windows/wsl/install&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;官方文档&lt;/a&gt;。
-安装指令:
-&lt;code&gt;python3 -m pip install semgrep&lt;/code&gt;
-登录Semgrep账号:
-&lt;code&gt;semgrep login&lt;/code&gt;
-同时可以安装VSCode中的Semgrep官方插件，就可以在VSCode命令行中使用Semgrep扫描指令。&lt;/p&gt;
 &lt;h2 id=&#34;核心方法run-rules&#34;&gt;核心方法：Run Rules
-&lt;/h2&gt;&lt;p&gt;使用Rules规则进行静态代码分析，检查各种代码问题，包括安全漏洞、常见编程错误、最佳实践、代码风格等。同时，用户也可以根据自己的需求创建和定制规则。
-&lt;a class=&#34;link&#34; href=&#34;https://semgrep.dev/learn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;官方规则编写教程（超详细）&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;pattern-syntax-模式语法&#34;&gt;Pattern syntax 模式语法
-&lt;/h3&gt;&lt;p&gt;可以在一条字符串中寻找给定的模式子串相同的所有子串。如Pattern&lt;code&gt;return 42&lt;/code&gt;可以匹配函数中的顶层语句或任何嵌套语句：&lt;/p&gt;
+&lt;/h2&gt;&lt;h3 id=&#34;概述&#34;&gt;概述
+&lt;/h3&gt;&lt;p&gt;规则(Rules)是 Semgrep 必须与代码匹配才能生成结果的模式的规范。规则是用 YAML 编写的。如果没有规则，引擎将没有有关如何匹配 code 的说明。
+规则可以在 Semgrep 或其 OSS Engine 上运行。
+按作者划分Semgrep 注册表(Semgrep Registry)中的规则类型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;社区规则 - 由 Semgrep 团队审查，这些规则包含来自 Semgrep 社区的贡献。社区规则包含一系列规则，包括许多为安全审计员制定的规则。&lt;/li&gt;
+&lt;li&gt;第三方规则 - 由 Trail of Bits、GitLab 等外部贡献者直接创建。&lt;/li&gt;
+&lt;li&gt;私有规则 - 由用户自己的组织编写和发布的规则，仅供用户的组织使用。&lt;/li&gt;
+&lt;li&gt;专业规则 - 由 Semgrep 团队创建的专有规则，针对需要准确调查结果的安全和软件工程师。这些规则为许多编程语言提供了更大的覆盖范围，并使用了最新的 Semgrep 功能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;按功能分类则有两种类型的规则：&lt;strong&gt;搜索&lt;/strong&gt;和&lt;strong&gt;污点&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;搜索规则&#34;&gt;搜索规则
+&lt;/h3&gt;&lt;p&gt;规则默认为此类型。搜索规则根据规则描述的&lt;strong&gt;模式检测&lt;/strong&gt;匹配项。搜索规则执行多种语义分析，例如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将语法不同的代码解释为语义等效&lt;/li&gt;
+&lt;li&gt;常量传播&lt;/li&gt;
+&lt;li&gt;将完全限定名称与其在代码中的引用匹配，即使不是完全限定名称&lt;/li&gt;
+&lt;li&gt;类型推断，尤其是在使用类型化元变量时&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;污点规则&#34;&gt;污点规则
+&lt;/h3&gt;&lt;p&gt;污点规则除了使用默认搜索功能外，还使用 Semgrep 的污点分析。污点规则能够指定数据的源、接收器和传播器，以及该数据的排错程序。污点分析跟踪和追溯不受信任或不安全的数据流。如果这些输入未经过清理，则来自用户输入等来源的数据可能不安全，并被用作攻击媒介。污点分析提供了一种在数据通过程序从不受信任的来源移动到易受攻击的函数时对其进行跟踪的方法。&lt;/p&gt;
+&lt;h3 id=&#34;运行规则&#34;&gt;运行规则
+&lt;/h3&gt;&lt;p&gt;使用Rules规则进行静态代码分析，检查各种代码问题，包括安全漏洞、常见编程错误、最佳实践、代码风格等。同时，用户也可以根据自己的需求创建和定制规则。
+公有规则存储在&lt;a class=&#34;link&#34; href=&#34;https://semgrep.dev/explore&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Semgrep 注册表(Semgrep Registry)&lt;/a&gt;这使用户能够扫描代码，而无需编写任何自定义内容。Semgrep Registry 存储在&lt;a class=&#34;link&#34; href=&#34;https://github.com/semgrep/semgrep-rules&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;开源存储库&lt;/a&gt;中。
+规则可以组织在&lt;strong&gt;规则集中&lt;/strong&gt;。规则集是通过编程语言、OWASP 类别或框架相关的规则。这些规则集由 Semgrep 的团队策划，并随着新规则添加到 &lt;a class=&#34;link&#34; href=&#34;https://semgrep.dev/explore&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Semgrep Registry&lt;/a&gt; 而更新。
+运行规则的类型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;现有 Semgrep Registry 规则。所有用户都可以为开源 Semgrep Registry 做出贡献。&lt;/li&gt;
+&lt;li&gt;本地规则：
+&lt;ul&gt;
+&lt;li&gt;传递到命令行中的一次性临时规则。&lt;/li&gt;
+&lt;li&gt;YAML 定义的规则。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;本地规则和 Semgrep Registry 规则的组合，或者通常多个规则的组合。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://semgrep.dev/learn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;官方规则编写教程&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;核心原理模式匹配逻辑&#34;&gt;核心原理：模式匹配逻辑
+&lt;/h2&gt;&lt;p&gt;Semgrep在运行规则时，采用模式匹配规则。每当 Semgrep 找到与规则定义的模式匹配的代码时，它都会生成并向用户报告结果。模式匹配在代码中搜索给定模式。例如，表达式模式可以匹配完整表达式或子表达式的一部分：&lt;code&gt;1 + func(42)&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;foo(1 + func(42)) + bar()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;同样，语句模式可以匹配 top 语句或任何嵌套语句：&lt;code&gt;return 42&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;def foo(x):  if x &amp;gt; 1:     if x &amp;gt; 2:       return 42  return 42
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;与正则表达式不同，这种匹配语法理解代码的结构并构建语法树来搜索匹配项，且提供了微调匹配的特定机制。
+其模式语法具体可见：&lt;a class=&#34;link&#34; href=&#34;https://semgrep.dev/docs/writing-rules/pattern-syntax&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pattern syntax | Semgrep&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;核心原理数据流分析&#34;&gt;核心原理：数据流分析
+&lt;/h2&gt;&lt;p&gt;Semgrep 提供了一个程序内数据流分析引擎，该引擎打开了各种 Semgrep 功能。Semgrep 提供以下数据流分析：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Constant propagation常量传播允许 Semgrep 匹配到时可以恒定减少折叠（match against when can be reduced to by constant folding）。&lt;a class=&#34;link&#34; href=&#34;https://semgrep.dev/docs/writing-rules/data-flow/constant-propagation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Constant propagation&lt;/a&gt; 还有一个特定的实验功能，称为 &lt;a class=&#34;link&#34; href=&#34;https://semgrep.dev/docs/writing-rules/experiments/symbolic-propagation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Symbolic propagation&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;Taint tracking (known also as taint analysis) 污点跟踪（也称为污点分析）使用户能够编写简单的规则来捕获复杂的&lt;a class=&#34;link&#34; href=&#34;https://owasp.org/www-community/Injection_Flaws&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;注入错误&lt;/a&gt;，例如可能导致跨站点脚本(XSS)的错误。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;原则上，数据流分析引擎（提供污点跟踪、常量传播和符号传播）可以在Semgrep支持的任何语言上运行。但是，支持级别低于常规 Semgrep 匹配引擎的级别。&lt;/p&gt;
+&lt;p&gt;当 Semgrep 对代码执行分析时，它会创建一个&lt;strong&gt;抽象语法树&lt;/strong&gt; （AST），然后将其转换为易于分析的&lt;strong&gt;中间语言&lt;/strong&gt; （IL）。随后，Semgrep 主要对 IL 运行与语言无关的分析。但是，此翻译并未完全完成。&lt;/p&gt;
+&lt;p&gt;注意：在使用数据流分析时，Semgrep 可能无法正确分析某些语言的某些功能。因此，即使 Semgrep 找到不受支持的构造，它也不会失败。当忽略构造时，分析会继续。这可能会导致 Semgrep 不匹配某些应该匹配的代码（漏报）或不匹配不应匹配的代码（误报）。&lt;/p&gt;
+&lt;h2 id=&#34;个人安装使用教程&#34;&gt;个人安装使用教程
+&lt;/h2&gt;&lt;h3 id=&#34;注册账号并登录在线平台&#34;&gt;注册账号并登录在线平台
+&lt;/h3&gt;&lt;p&gt;在 &lt;a class=&#34;link&#34; href=&#34;https://semgrep.dev/login&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Semgrep AppSec 平台&lt;/a&gt;，单击 &lt;strong&gt;Sign in with GitHub（使用 GitHub 登录&lt;/strong&gt;）或 &lt;strong&gt;Sign in with GitLab&lt;/strong&gt; 进行注册。按照屏幕上的提示并继续。&lt;/p&gt;
+&lt;h3 id=&#34;启动cli并安装semgrep&#34;&gt;启动CLI并安装Semgrep
+&lt;/h3&gt;&lt;h4 id=&#34;macos&#34;&gt;MacOS
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
@@ -96,25 +178,187 @@ Maturity level 成熟等级 Lockfile-only: Rust(Cargo§), Dart(Pub), Elixir(Hex)
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;def foo(x):
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  if x &amp;gt; 1:
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;     if x &amp;gt; 2:
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       return 42
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  return 42
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# install through homebrew
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew install semgrep
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# install through pip
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;python3 -m pip install semgrep
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# confirm installation succeeded by printing the currently installed versionsemgrep --version
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;在命令行中，使用&lt;code&gt;--pattern&lt;/code&gt;（或&lt;code&gt;-e&lt;/code&gt;）标记指定patterns。在一个配置文件中可以指定多个coordinating patterns。&lt;/p&gt;
-&lt;h2 id=&#34;备注&#34;&gt;备注
-&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;CI(Continuous Integration) 持续集成: 是在源代码变更后自动检测、拉取、构建和（在大多数情况下）进行单元测试的过程。持续集成是启动管道的环节（尽管某些预验证 —— 通常称为 上线前检查(pre-flight checks) —— 有时会被归在持续集成之前）。
-持续集成的目标是快速确保开发人员新提交的变更是好的，并且适合在代码库中进一步使用。
-CD(continuous deployment)持续部署: 持续交付的下一步，指的是代码通过评审以后，自动部署到生产环境。
-持续部署的目标是，代码在任何时刻都是可部署的，可以进入生产阶段。&lt;/p&gt;&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;LGPL(Lesser General Public License)开源协议: LGPL 允许商业软件通过类库引用(link)方式使用LGPL类库而不需要开源商业软件的代码。这使得采用LGPL协议的开源代码可以被商业软件作为类库引用并发布和销售。
-但是如果修改LGPL协议的代码或者衍生，则所有修改的代码，涉及修改部分的额外代码和衍生的代码都必须采用LGPL协议。因此LGPL协议的开源代码很适合作为第三方类库被商业软件引用，但不适合希望以LGPL协议代码为基础，通过修改和衍生的方式做二次开发的商业软件采用。
-GPL/LGPL都保障原作者的知识产权，避免有人利用开源代码复制并开发类似的产品&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;tbc&lt;/p&gt;
+&lt;/div&gt;&lt;h4 id=&#34;linux&#34;&gt;Linux
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# install through pip
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;python3 -m pip install semgrep
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# confirm installation succeeded by printing the currently installed version
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;semgrep --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;wsl&#34;&gt;WSL
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# install through pip
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;python3 -m pip install semgrep
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# confirm installation succeeded by printing the currently installed version
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;semgrep --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;登录semgrep帐户&#34;&gt;登录Semgrep帐户
+&lt;/h3&gt;&lt;p&gt;在CLI输入指令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;semgrep login
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;点击输出的链接跳转授权登录。&lt;/p&gt;
+&lt;h3 id=&#34;使用cli扫描&#34;&gt;使用CLI扫描
+&lt;/h3&gt;&lt;p&gt;导航到项目库的根目录，运行扫描指令。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;semgrep ci
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;命令行出现下图显示结果（WSL+VScode环境）表示正在扫描中。
+&lt;img src=&#34;http://localhost:1313/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240911174212.png&#34;
+	width=&#34;2810&#34;
+	height=&#34;1657&#34;
+	srcset=&#34;http://localhost:1313/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240911174212_hu_59372c57b17c9a4a.png 480w, http://localhost:1313/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240911174212_hu_8459f829ae7320fb.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;169&#34;
+		data-flex-basis=&#34;407px&#34;
+	
+&gt;
+可以通过指令更改来运行特定产品：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# scan with OSS only （本地单文件SAST方案）
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;semgrep ci --oss-only
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# scan with Semgrep Code  （可跨文件的SAST方案）
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;semgrep ci --code  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# scan with Semgrep Supply Chain  （软件构成分析方案）
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;semgrep ci --supply-chain  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# scan with Semgrep Secrets  （检测秘密信息状态的方案）
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;semgrep ci --secrets
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;注：没有semgrep账号（无法在在线平台查看结果），想要快速扫描本地代码库或者快速测试自定义规则，可以使用指令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;semgrep scan
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;查看扫描结果&#34;&gt;查看扫描结果
+&lt;/h3&gt;&lt;h4 id=&#34;本地查看&#34;&gt;本地查看
+&lt;/h4&gt;&lt;p&gt;在使用&lt;code&gt;semgrep ci&lt;/code&gt;指令时，CLI内可直接浏览扫描结果。
+要将结果导出为纯文本文件：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;semgrep ci --text --text-output=semgrep.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;要将结果导出到 SARIF 文件：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;semgrep ci --sarif --sarif-output=semgrep.sarif
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;要将结果导出到 JSON 文件：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;semgrep ci --json --json-output=semgrep.json
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;在线查看&#34;&gt;在线查看
+&lt;/h4&gt;&lt;p&gt;在 &lt;a class=&#34;link&#34; href=&#34;https://semgrep.dev/login&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Semgrep AppSec 平台&lt;/a&gt;可以浏览该账号所有项目使用所有产品的扫描结果并进行过滤等操作：
+&lt;img src=&#34;http://localhost:1313/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912173859.png&#34;
+	width=&#34;3760&#34;
+	height=&#34;1928&#34;
+	srcset=&#34;http://localhost:1313/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912173859_hu_244649b75dc03002.png 480w, http://localhost:1313/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912173859_hu_cce140fb9a8e3fb0.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;195&#34;
+		data-flex-basis=&#34;468px&#34;
+	
+&gt;
+左侧的导航栏中&amp;quot;Code&amp;quot; &amp;ldquo;Supply Chain&amp;rdquo; &amp;ldquo;Secrets&amp;quot;分类展示了Semgrep的三个产品所检测出的结果。
+&amp;ldquo;Rules&amp;quot;部分可以查看规则库、在线编写规则和管理规则使用策略。
+“Settings”区可以修改所需功能，如开启“跨文件扫描”等功能。&lt;/p&gt;
+&lt;h3 id=&#34;创建并运行本地规则&#34;&gt;创建并运行本地规则
+&lt;/h3&gt;&lt;p&gt;用户创建了符合规范的规则文件如myrule.yaml后，可以通过指令进行规则的本地测试：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;semgrep scan --config PATH/TO/MYRULE.YAML
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;下图为对样例规则的测试：
+&lt;img src=&#34;http://localhost:1313/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240913183324.png&#34;
+	width=&#34;2530&#34;
+	height=&#34;1684&#34;
+	srcset=&#34;http://localhost:1313/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240913183324_hu_ef331982eb31e79e.png 480w, http://localhost:1313/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240913183324_hu_4cfa8c788781a876.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;150&#34;
+		data-flex-basis=&#34;360px&#34;
+	
+&gt;
+fin.&lt;/p&gt;
 </description>
         </item>
         
