@@ -6,7 +6,25 @@
 
 <link rel='canonical' href='https://chasenkelp.github.io/search/'>
 
-<link rel="stylesheet" href="/scss/style.min.cc04eb17e83fdc8721e2c466f966cfd4bd4373366ecd8f3e7d26cbd36f5bd303.css"><meta property='og:title' content="Search">
+<link rel="stylesheet" href="/scss/style.min.a8ce0588f14a659681e863ee4203917bc486b3414619f1bb0e723920809006de.css"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+    var int = setInterval(fixCount, 100);
+    var busuanziSiteOffset =  10000 
+    var busuanziVisitorOffset =  null 
+        function fixCount() {
+      if ($("#busuanzi_container_site_pv").css("display") != "none") {
+        clearInterval(int);
+        $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + busuanziSiteOffset);
+        $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + busuanziVisitorOffset);
+      }
+    }
+    });
+</script><meta property='og:title' content="Search">
 <meta property='og:description' content="">
 <meta property='og:url' content='https://chasenkelp.github.io/search/'>
 <meta property='og:site_name' content='仿生寿喜森梦见赛博柚子醋'>
@@ -286,6 +304,42 @@
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
+
+    
+    <section class="totalcount">
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        发表了6篇文章 · 
+        共嘟嘟了13.00k字
+    </section>
+
+
+    
+    <section class="busuanzi">
+        <span id="busuanzi_container_site_pv" style='display:none'> 本站总访问量 <span id="busuanzi_value_site_pv"></span> 次 </span>·
+        <span id="busuanzi_container_site_uv" style='display:none'> 总访客数 <span id="busuanzi_value_site_uv"></span> 人</span>
+    </section>
+    
 </footer>
 
 
