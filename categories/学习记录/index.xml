@@ -8,12 +8,12 @@
         <language>zh-cn</language>
         <copyright>ChasenKelp</copyright>
         <lastBuildDate>Tue, 07 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://chasenkelp.github.io/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>“函数式编程大辨析</title>
+        <title>函数式编程大辨析</title>
         <link>https://chasenkelp.github.io/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/</link>
         <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
         
         <guid>https://chasenkelp.github.io/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/</guid>
-        <description>&lt;img src="https://chasenkelp.github.io/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/%E6%9B%B2%E8%BD%B4%E7%AE%B1%E9%9D%A2%E7%98%AB%E5%8F%88%E7%8A%AF%E4%BA%86.png" alt="Featured image of post “函数式编程大辨析" /&gt;&lt;p&gt;决定写这篇博客，是因为在过去的一年时间，不知为何，我经常与「函数式编程」打交道，调研静态分析工具、学习Go语言、实习中遇到的C++代码以及现在正在学习的响应式范式，函数式编程真的无处不在。从初次接触开始，我就对这种优雅、强大的编程范式非常着迷。但是因为大脑先入为主地接受了面向对象之类的思想，所以接受函数式体系中各种概念对我会很困难，在胡思乱想的过程中，&lt;strong&gt;急需理顺一些概念，完成一些辨析&lt;/strong&gt;。&lt;/p&gt;
+        <description>&lt;img src="https://chasenkelp.github.io/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/%E6%9B%B2%E8%BD%B4%E7%AE%B1%E9%9D%A2%E7%98%AB%E5%8F%88%E7%8A%AF%E4%BA%86.png" alt="Featured image of post 函数式编程大辨析" /&gt;&lt;p&gt;决定写这篇博客，是因为在过去的一年时间，不知为何，我经常与「函数式编程」打交道，调研静态分析工具、学习Go语言、实习中遇到的C++代码以及现在正在学习的响应式范式，函数式编程真的无处不在。从初次接触开始，我就对这种优雅、强大的编程范式非常着迷。但是因为大脑先入为主地接受了面向对象之类的思想，所以接受函数式体系中各种概念对我会很困难，在胡思乱想的过程中，&lt;strong&gt;急需理顺一些概念，完成一些辨析&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;综上，这是一篇科普性质的博客，以我较为熟悉的语言为载体，结合之前的一些学习笔记，记录我这个小蒟蒻对函数式编程在意的点，尽量不犯事实型错误，希望激励自己深入学习的同时也可以帮到大家😸️&lt;/p&gt;
 &lt;h2 id=&#34;啥是函数式编程&#34;&gt;啥是函数式编程
 &lt;/h2&gt;&lt;p&gt;函数式编程(Functional Programming, FP)是一种编程范式。面向过程or指令的编程思想通常是强调一行代码要去做什么(what)或者怎么做(how)，强调过程，函数是封装一些指令的工具。而函数式更加关注执行的结果，行为和数据是分离的，程序中所有的一切都可以理解为函数。&lt;/p&gt;
