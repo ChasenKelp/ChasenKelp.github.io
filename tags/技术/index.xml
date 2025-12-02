@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>技术 on 仿生寿喜森梦见赛博柚子醋</title>
-        <link>https://chasenkelp.github.io/tags/%E6%8A%80%E6%9C%AF/</link>
+        <link>https://kelpfulblog.org/tags/%E6%8A%80%E6%9C%AF/</link>
         <description>Recent content in 技术 on 仿生寿喜森梦见赛博柚子醋</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>ChasenKelp</copyright>
-        <lastBuildDate>Tue, 07 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://chasenkelp.github.io/tags/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 07 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://kelpfulblog.org/tags/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>函数式编程大辨析</title>
-        <link>https://chasenkelp.github.io/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/</link>
+        <link>https://kelpfulblog.org/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/</link>
         <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://chasenkelp.github.io/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/</guid>
-        <description>&lt;img src="https://chasenkelp.github.io/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/%E6%9B%B2%E8%BD%B4%E7%AE%B1%E9%9D%A2%E7%98%AB%E5%8F%88%E7%8A%AF%E4%BA%86.png" alt="Featured image of post 函数式编程大辨析" /&gt;&lt;p&gt;决定写这篇博客，是因为在过去的一年时间，不知为何，我经常与「函数式编程」打交道，调研静态分析工具、学习Go语言、实习中遇到的C++代码以及现在正在学习的响应式范式，函数式编程真的无处不在。从初次接触开始，我就对这种优雅、强大的编程范式非常着迷。但是因为大脑先入为主地接受了面向对象之类的思想，所以接受函数式体系中各种概念对我会很困难，在胡思乱想的过程中，&lt;strong&gt;急需理顺一些概念，完成一些辨析&lt;/strong&gt;。&lt;/p&gt;
+        <guid>https://kelpfulblog.org/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/</guid>
+        <description>&lt;img src="https://kelpfulblog.org/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/%E6%9B%B2%E8%BD%B4%E7%AE%B1%E9%9D%A2%E7%98%AB%E5%8F%88%E7%8A%AF%E4%BA%86.png" alt="Featured image of post 函数式编程大辨析" /&gt;&lt;p&gt;决定写这篇博客，是因为在过去的一年时间，不知为何，我经常与「函数式编程」打交道，调研静态分析工具、学习Go语言、实习中遇到的C++代码以及现在正在学习的响应式范式，函数式编程真的无处不在。从初次接触开始，我就对这种优雅、强大的编程范式非常着迷。但是因为大脑先入为主地接受了面向对象之类的思想，所以接受函数式体系中各种概念对我会很困难，在胡思乱想的过程中，&lt;strong&gt;急需理顺一些概念，完成一些辨析&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;综上，这是一篇科普性质的博客，以我较为熟悉的语言为载体，结合之前的一些学习笔记，记录我这个小蒟蒻对函数式编程在意的点，尽量不犯事实型错误，希望激励自己深入学习的同时也可以帮到大家😸️&lt;/p&gt;
 &lt;h2 id=&#34;啥是函数式编程&#34;&gt;啥是函数式编程
 &lt;/h2&gt;&lt;p&gt;函数式编程(Functional Programming, FP)是一种编程范式。面向过程or指令的编程思想通常是强调一行代码要去做什么(what)或者怎么做(how)，强调过程，函数是封装一些指令的工具。而函数式更加关注执行的结果，行为和数据是分离的，程序中所有的一切都可以理解为函数。&lt;/p&gt;
@@ -175,12 +175,12 @@
 &lt;p&gt;那Lambda呢？难点就是Stream的每个操作(如 &lt;code&gt;map&lt;/code&gt;、&lt;code&gt;filter&lt;/code&gt;)都接受一个 Lambda 表达式作为参数。关注的重点是创造出一个公式，一个流水线，逻辑复杂又优雅安全。&lt;/p&gt;
 &lt;h3 id=&#34;惰性求值&#34;&gt;惰性求值
 &lt;/h3&gt;&lt;p&gt;惰性求值(Lazy Evaluation)，好soutenu(雅言)的翻译乍一看完全无法理解呢，好在还有个别称: call-by-need。通俗地将就是我上课的时候不先想好问题的答案，当老师点到我我在现场想出答案，如果老师没点我那我一点脑力都没有消耗。所以不难看出，这种机制非常适配纯函数式编程和流式计算，性能上也看似有很大提升。&lt;/p&gt;
-&lt;p&gt;这个概念其实应该一开始就写，但是我个人认为，在Stream后再说接受难度很更低一点。但如果去严格辨析哪些语言的函数式编程是严格惰性的，哪些不是，又要耗费很多精力，需要从编译器的角度看事情。所以在这里了解这个概念即可，并且认识到在大多数语言中，都是采用半惰性求值策略。&lt;/p&gt;
+&lt;p&gt;这个概念其实应该一开始就写，但是我个人认为，在Stream后再说接受难度更低一点。但如果去严格辨析哪些语言的函数式编程是严格惰性的，哪些不是，又要耗费很多精力，需要从编译器的角度看事情。所以在这里了解这个概念即可，并且认识到在大多数语言中，都是采用半惰性求值策略。&lt;/p&gt;
 &lt;h2 id=&#34;结语&#34;&gt;结语
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://chasenkelp.github.io/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/%E8%88%B9%E4%B8%8A%E5%85%A8%E9%83%BD%E4%B8%8D%E6%98%AF%E4%BA%BA.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://kelpfulblog.org/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/%E8%88%B9%E4%B8%8A%E5%85%A8%E9%83%BD%E4%B8%8D%E6%98%AF%E4%BA%BA.png&#34;
 	width=&#34;2277&#34;
 	height=&#34;969&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/%E8%88%B9%E4%B8%8A%E5%85%A8%E9%83%BD%E4%B8%8D%E6%98%AF%E4%BA%BA_hu_454e53a71eef9093.png 480w, https://chasenkelp.github.io/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/%E8%88%B9%E4%B8%8A%E5%85%A8%E9%83%BD%E4%B8%8D%E6%98%AF%E4%BA%BA_hu_a74f1d58c0db84ad.png 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/%E8%88%B9%E4%B8%8A%E5%85%A8%E9%83%BD%E4%B8%8D%E6%98%AF%E4%BA%BA_hu_454e53a71eef9093.png 480w, https://kelpfulblog.org/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/%E8%88%B9%E4%B8%8A%E5%85%A8%E9%83%BD%E4%B8%8D%E6%98%AF%E4%BA%BA_hu_a74f1d58c0db84ad.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -206,10 +206,10 @@
         </item>
         <item>
         <title>RIME小狼毫Windows下添加emoji</title>
-        <link>https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/</link>
+        <link>https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/</link>
         <pubDate>Fri, 06 Jun 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/</guid>
+        <guid>https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/</guid>
         <description>&lt;p&gt;今天由于不想学习，想起来了几年（？）之前emoji没配成功的事，所以来写个小贴子希望能帮到有需要的人😹️&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;系统：Windows 10&lt;/p&gt;
@@ -217,10 +217,10 @@
 &lt;h2 id=&#34;1-下载压缩包&#34;&gt;1 下载压缩包
 &lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/rime/rime-emoji/archive/master.zip&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;点击&lt;/a&gt;下载后，复制压缩包路径（最好不包含中文），右键小狼毫图标点击「输入法设定」，点击左下角「获取更多方案」。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/1.png&#34;
 	width=&#34;1572&#34;
 	height=&#34;1086&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/1_hu_e860e6f9f99e0685.png 480w, https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/1_hu_5db55950b46e84b6.png 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/1_hu_e860e6f9f99e0685.png 480w, https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/1_hu_5db55950b46e84b6.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -230,10 +230,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;进入命令行粘贴刚才复制的绝对路径。
-&lt;img src=&#34;https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/2.png&#34;
+&lt;img src=&#34;https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/2.png&#34;
 	width=&#34;2076&#34;
 	height=&#34;780&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/2_hu_7a3c292842ab732b.png 480w, https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/2_hu_cd6b126e61233701.png 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/2_hu_7a3c292842ab732b.png 480w, https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/2_hu_cd6b126e61233701.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -276,10 +276,10 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;右键小狼毫图标点击「重新部署」，出现「维护中」后检查是否配置成功。&lt;/p&gt;
 &lt;h2 id=&#34;3-效果如下&#34;&gt;3 效果如下
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/4.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/4.png&#34;
 	width=&#34;433&#34;
 	height=&#34;315&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/4_hu_6cdb22ee4cd003b4.png 480w, https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/4_hu_afafa956f533b259.png 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/4_hu_6cdb22ee4cd003b4.png 480w, https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/4_hu_afafa956f533b259.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -296,11 +296,11 @@
         </item>
         <item>
         <title>装修Hugo博客时遇到的一点小坑</title>
-        <link>https://chasenkelp.github.io/p/%E8%A3%85%E4%BF%AEhugo%E5%8D%9A%E5%AE%A2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E5%9D%91/</link>
+        <link>https://kelpfulblog.org/p/%E8%A3%85%E4%BF%AEhugo%E5%8D%9A%E5%AE%A2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E5%9D%91/</link>
         <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://chasenkelp.github.io/p/%E8%A3%85%E4%BF%AEhugo%E5%8D%9A%E5%AE%A2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E5%9D%91/</guid>
-        <description>&lt;img src="https://chasenkelp.github.io/p/%E8%A3%85%E4%BF%AEhugo%E5%8D%9A%E5%AE%A2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E5%9D%91/%E5%85%AC%E4%B8%BB%E7%AC%91%E5%98%BB.png" alt="Featured image of post 装修Hugo博客时遇到的一点小坑" /&gt;&lt;p&gt;之前博客用的静态网页生成器是&lt;a class=&#34;link&#34; href=&#34;https://jekyllcn.com/docs/home/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+        <guid>https://kelpfulblog.org/p/%E8%A3%85%E4%BF%AEhugo%E5%8D%9A%E5%AE%A2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E5%9D%91/</guid>
+        <description>&lt;img src="https://kelpfulblog.org/p/%E8%A3%85%E4%BF%AEhugo%E5%8D%9A%E5%AE%A2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E5%9D%91/%E5%85%AC%E4%B8%BB%E7%AC%91%E5%98%BB.png" alt="Featured image of post 装修Hugo博客时遇到的一点小坑" /&gt;&lt;p&gt;之前博客用的静态网页生成器是&lt;a class=&#34;link&#34; href=&#34;https://jekyllcn.com/docs/home/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Jekyll&lt;/a&gt;，因为我是用 Github Page 托管的，默认支持的框架就是 Jekyll 。但是因为对之前的主题不是很满意，于是瞄向了 Hugo-stack ，使用的人很多，有很多可以抄的作业和很美的装修，此外，因为 &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo&lt;/a&gt;是 Go 开发的，编译型语言生成速度很快！（但个人体验其实差别没有非常大，可能适合ADHD（？😹））&lt;/p&gt;
 &lt;p&gt;其实还有一个很重要优点，就是可以把主题拉取存放在一个目录下，方便切换，但是因为我装修改动挺大，按常规操作出现了一些问题，懒得解决，于是干脆把主题拉下来，直接在样例的基础是修改！方便多啦！&lt;/p&gt;
@@ -337,10 +337,10 @@
         </item>
         <item>
         <title>SAST工具：Semgrep初期调研报告</title>
-        <link>https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/</link>
+        <link>https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/</link>
         <pubDate>Fri, 26 Jul 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/</guid>
+        <guid>https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/</guid>
         <description>&lt;h2 id=&#34;优势&#34;&gt;优势
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;它是开源的。&lt;/li&gt;
@@ -392,10 +392,10 @@ Semgrep Supply Chain（Semgrep供应链管理软件）能够分析锁定文件�
 &lt;/ul&gt;
 &lt;h2 id=&#34;language-support-支持语言&#34;&gt;Language support 支持语言
 &lt;/h2&gt;&lt;p&gt;成熟等级解释：
-&lt;img src=&#34;https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912185025.png&#34;
+&lt;img src=&#34;https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912185025.png&#34;
 	width=&#34;1226&#34;
 	height=&#34;764&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912185025_hu_878c70dac3a953f.png 480w, https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912185025_hu_e00c06be591bdfc5.png 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912185025_hu_878c70dac3a953f.png 480w, https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912185025_hu_e00c06be591bdfc5.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -565,10 +565,10 @@ Maturity level 成熟等级 Lockfile-only: Rust(Cargo§), Dart(Pub), Elixir(Hex)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;命令行出现下图显示结果（WSL+VScode环境）表示正在扫描中。
-&lt;img src=&#34;https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240911174212.png&#34;
+&lt;img src=&#34;https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240911174212.png&#34;
 	width=&#34;2810&#34;
 	height=&#34;1657&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240911174212_hu_59372c57b17c9a4a.png 480w, https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240911174212_hu_8459f829ae7320fb.png 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240911174212_hu_59372c57b17c9a4a.png 480w, https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240911174212_hu_8459f829ae7320fb.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -648,10 +648,10 @@ Maturity level 成熟等级 Lockfile-only: Rust(Cargo§), Dart(Pub), Elixir(Hex)
 &lt;/div&gt;&lt;h4 id=&#34;在线查看&#34;&gt;在线查看
 &lt;/h4&gt;&lt;p&gt;在 &lt;a class=&#34;link&#34; href=&#34;https://semgrep.dev/login&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Semgrep AppSec 平台&lt;/a&gt;可以浏览该账号所有项目使用所有产品的扫描结果并进行过滤等操作：
-&lt;img src=&#34;https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912173859.png&#34;
+&lt;img src=&#34;https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912173859.png&#34;
 	width=&#34;3760&#34;
 	height=&#34;1928&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912173859_hu_244649b75dc03002.png 480w, https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912173859_hu_cce140fb9a8e3fb0.png 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912173859_hu_244649b75dc03002.png 480w, https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912173859_hu_cce140fb9a8e3fb0.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -674,10 +674,10 @@ Maturity level 成熟等级 Lockfile-only: Rust(Cargo§), Dart(Pub), Elixir(Hex)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;下图为对样例规则的测试：
-&lt;img src=&#34;https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240913183324.png&#34;
+&lt;img src=&#34;https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240913183324.png&#34;
 	width=&#34;2530&#34;
 	height=&#34;1684&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240913183324_hu_ef331982eb31e79e.png 480w, https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240913183324_hu_4cfa8c788781a876.png 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240913183324_hu_ef331982eb31e79e.png 480w, https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240913183324_hu_4cfa8c788781a876.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	

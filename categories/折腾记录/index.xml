@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>折腾记录 on 仿生寿喜森梦见赛博柚子醋</title>
-        <link>https://chasenkelp.github.io/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</link>
+        <link>https://kelpfulblog.org/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</link>
         <description>Recent content in 折腾记录 on 仿生寿喜森梦见赛博柚子醋</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>ChasenKelp</copyright>
-        <lastBuildDate>Fri, 06 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://chasenkelp.github.io/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 06 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://kelpfulblog.org/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>RIME小狼毫Windows下添加emoji</title>
-        <link>https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/</link>
+        <link>https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/</link>
         <pubDate>Fri, 06 Jun 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/</guid>
+        <guid>https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/</guid>
         <description>&lt;p&gt;今天由于不想学习，想起来了几年（？）之前emoji没配成功的事，所以来写个小贴子希望能帮到有需要的人😹️&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;系统：Windows 10&lt;/p&gt;
@@ -20,10 +20,10 @@
 &lt;h2 id=&#34;1-下载压缩包&#34;&gt;1 下载压缩包
 &lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/rime/rime-emoji/archive/master.zip&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;点击&lt;/a&gt;下载后，复制压缩包路径（最好不包含中文），右键小狼毫图标点击「输入法设定」，点击左下角「获取更多方案」。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/1.png&#34;
 	width=&#34;1572&#34;
 	height=&#34;1086&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/1_hu_e860e6f9f99e0685.png 480w, https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/1_hu_5db55950b46e84b6.png 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/1_hu_e860e6f9f99e0685.png 480w, https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/1_hu_5db55950b46e84b6.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -33,10 +33,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;进入命令行粘贴刚才复制的绝对路径。
-&lt;img src=&#34;https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/2.png&#34;
+&lt;img src=&#34;https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/2.png&#34;
 	width=&#34;2076&#34;
 	height=&#34;780&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/2_hu_7a3c292842ab732b.png 480w, https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/2_hu_cd6b126e61233701.png 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/2_hu_7a3c292842ab732b.png 480w, https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/2_hu_cd6b126e61233701.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -79,10 +79,10 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;右键小狼毫图标点击「重新部署」，出现「维护中」后检查是否配置成功。&lt;/p&gt;
 &lt;h2 id=&#34;3-效果如下&#34;&gt;3 效果如下
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/4.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/4.png&#34;
 	width=&#34;433&#34;
 	height=&#34;315&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/4_hu_6cdb22ee4cd003b4.png 480w, https://chasenkelp.github.io/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/4_hu_afafa956f533b259.png 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/4_hu_6cdb22ee4cd003b4.png 480w, https://kelpfulblog.org/p/rime%E5%B0%8F%E7%8B%BC%E6%AF%ABwindows%E4%B8%8B%E6%B7%BB%E5%8A%A0emoji/4_hu_afafa956f533b259.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -99,11 +99,11 @@
         </item>
         <item>
         <title>装修Hugo博客时遇到的一点小坑</title>
-        <link>https://chasenkelp.github.io/p/%E8%A3%85%E4%BF%AEhugo%E5%8D%9A%E5%AE%A2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E5%9D%91/</link>
+        <link>https://kelpfulblog.org/p/%E8%A3%85%E4%BF%AEhugo%E5%8D%9A%E5%AE%A2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E5%9D%91/</link>
         <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://chasenkelp.github.io/p/%E8%A3%85%E4%BF%AEhugo%E5%8D%9A%E5%AE%A2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E5%9D%91/</guid>
-        <description>&lt;img src="https://chasenkelp.github.io/p/%E8%A3%85%E4%BF%AEhugo%E5%8D%9A%E5%AE%A2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E5%9D%91/%E5%85%AC%E4%B8%BB%E7%AC%91%E5%98%BB.png" alt="Featured image of post 装修Hugo博客时遇到的一点小坑" /&gt;&lt;p&gt;之前博客用的静态网页生成器是&lt;a class=&#34;link&#34; href=&#34;https://jekyllcn.com/docs/home/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+        <guid>https://kelpfulblog.org/p/%E8%A3%85%E4%BF%AEhugo%E5%8D%9A%E5%AE%A2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E5%9D%91/</guid>
+        <description>&lt;img src="https://kelpfulblog.org/p/%E8%A3%85%E4%BF%AEhugo%E5%8D%9A%E5%AE%A2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E5%9D%91/%E5%85%AC%E4%B8%BB%E7%AC%91%E5%98%BB.png" alt="Featured image of post 装修Hugo博客时遇到的一点小坑" /&gt;&lt;p&gt;之前博客用的静态网页生成器是&lt;a class=&#34;link&#34; href=&#34;https://jekyllcn.com/docs/home/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Jekyll&lt;/a&gt;，因为我是用 Github Page 托管的，默认支持的框架就是 Jekyll 。但是因为对之前的主题不是很满意，于是瞄向了 Hugo-stack ，使用的人很多，有很多可以抄的作业和很美的装修，此外，因为 &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo&lt;/a&gt;是 Go 开发的，编译型语言生成速度很快！（但个人体验其实差别没有非常大，可能适合ADHD（？😹））&lt;/p&gt;
 &lt;p&gt;其实还有一个很重要优点，就是可以把主题拉取存放在一个目录下，方便切换，但是因为我装修改动挺大，按常规操作出现了一些问题，懒得解决，于是干脆把主题拉下来，直接在样例的基础是修改！方便多啦！&lt;/p&gt;

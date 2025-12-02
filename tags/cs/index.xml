@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>CS on 仿生寿喜森梦见赛博柚子醋</title>
-        <link>https://chasenkelp.github.io/tags/cs/</link>
+        <link>https://kelpfulblog.org/tags/cs/</link>
         <description>Recent content in CS on 仿生寿喜森梦见赛博柚子醋</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>ChasenKelp</copyright>
-        <lastBuildDate>Tue, 07 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://chasenkelp.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 07 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://kelpfulblog.org/tags/cs/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>函数式编程大辨析</title>
-        <link>https://chasenkelp.github.io/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/</link>
+        <link>https://kelpfulblog.org/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/</link>
         <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://chasenkelp.github.io/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/</guid>
-        <description>&lt;img src="https://chasenkelp.github.io/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/%E6%9B%B2%E8%BD%B4%E7%AE%B1%E9%9D%A2%E7%98%AB%E5%8F%88%E7%8A%AF%E4%BA%86.png" alt="Featured image of post 函数式编程大辨析" /&gt;&lt;p&gt;决定写这篇博客，是因为在过去的一年时间，不知为何，我经常与「函数式编程」打交道，调研静态分析工具、学习Go语言、实习中遇到的C++代码以及现在正在学习的响应式范式，函数式编程真的无处不在。从初次接触开始，我就对这种优雅、强大的编程范式非常着迷。但是因为大脑先入为主地接受了面向对象之类的思想，所以接受函数式体系中各种概念对我会很困难，在胡思乱想的过程中，&lt;strong&gt;急需理顺一些概念，完成一些辨析&lt;/strong&gt;。&lt;/p&gt;
+        <guid>https://kelpfulblog.org/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/</guid>
+        <description>&lt;img src="https://kelpfulblog.org/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/%E6%9B%B2%E8%BD%B4%E7%AE%B1%E9%9D%A2%E7%98%AB%E5%8F%88%E7%8A%AF%E4%BA%86.png" alt="Featured image of post 函数式编程大辨析" /&gt;&lt;p&gt;决定写这篇博客，是因为在过去的一年时间，不知为何，我经常与「函数式编程」打交道，调研静态分析工具、学习Go语言、实习中遇到的C++代码以及现在正在学习的响应式范式，函数式编程真的无处不在。从初次接触开始，我就对这种优雅、强大的编程范式非常着迷。但是因为大脑先入为主地接受了面向对象之类的思想，所以接受函数式体系中各种概念对我会很困难，在胡思乱想的过程中，&lt;strong&gt;急需理顺一些概念，完成一些辨析&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;综上，这是一篇科普性质的博客，以我较为熟悉的语言为载体，结合之前的一些学习笔记，记录我这个小蒟蒻对函数式编程在意的点，尽量不犯事实型错误，希望激励自己深入学习的同时也可以帮到大家😸️&lt;/p&gt;
 &lt;h2 id=&#34;啥是函数式编程&#34;&gt;啥是函数式编程
 &lt;/h2&gt;&lt;p&gt;函数式编程(Functional Programming, FP)是一种编程范式。面向过程or指令的编程思想通常是强调一行代码要去做什么(what)或者怎么做(how)，强调过程，函数是封装一些指令的工具。而函数式更加关注执行的结果，行为和数据是分离的，程序中所有的一切都可以理解为函数。&lt;/p&gt;
@@ -175,12 +175,12 @@
 &lt;p&gt;那Lambda呢？难点就是Stream的每个操作(如 &lt;code&gt;map&lt;/code&gt;、&lt;code&gt;filter&lt;/code&gt;)都接受一个 Lambda 表达式作为参数。关注的重点是创造出一个公式，一个流水线，逻辑复杂又优雅安全。&lt;/p&gt;
 &lt;h3 id=&#34;惰性求值&#34;&gt;惰性求值
 &lt;/h3&gt;&lt;p&gt;惰性求值(Lazy Evaluation)，好soutenu(雅言)的翻译乍一看完全无法理解呢，好在还有个别称: call-by-need。通俗地将就是我上课的时候不先想好问题的答案，当老师点到我我在现场想出答案，如果老师没点我那我一点脑力都没有消耗。所以不难看出，这种机制非常适配纯函数式编程和流式计算，性能上也看似有很大提升。&lt;/p&gt;
-&lt;p&gt;这个概念其实应该一开始就写，但是我个人认为，在Stream后再说接受难度很更低一点。但如果去严格辨析哪些语言的函数式编程是严格惰性的，哪些不是，又要耗费很多精力，需要从编译器的角度看事情。所以在这里了解这个概念即可，并且认识到在大多数语言中，都是采用半惰性求值策略。&lt;/p&gt;
+&lt;p&gt;这个概念其实应该一开始就写，但是我个人认为，在Stream后再说接受难度更低一点。但如果去严格辨析哪些语言的函数式编程是严格惰性的，哪些不是，又要耗费很多精力，需要从编译器的角度看事情。所以在这里了解这个概念即可，并且认识到在大多数语言中，都是采用半惰性求值策略。&lt;/p&gt;
 &lt;h2 id=&#34;结语&#34;&gt;结语
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://chasenkelp.github.io/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/%E8%88%B9%E4%B8%8A%E5%85%A8%E9%83%BD%E4%B8%8D%E6%98%AF%E4%BA%BA.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://kelpfulblog.org/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/%E8%88%B9%E4%B8%8A%E5%85%A8%E9%83%BD%E4%B8%8D%E6%98%AF%E4%BA%BA.png&#34;
 	width=&#34;2277&#34;
 	height=&#34;969&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/%E8%88%B9%E4%B8%8A%E5%85%A8%E9%83%BD%E4%B8%8D%E6%98%AF%E4%BA%BA_hu_454e53a71eef9093.png 480w, https://chasenkelp.github.io/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/%E8%88%B9%E4%B8%8A%E5%85%A8%E9%83%BD%E4%B8%8D%E6%98%AF%E4%BA%BA_hu_a74f1d58c0db84ad.png 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/%E8%88%B9%E4%B8%8A%E5%85%A8%E9%83%BD%E4%B8%8D%E6%98%AF%E4%BA%BA_hu_454e53a71eef9093.png 480w, https://kelpfulblog.org/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/%E8%88%B9%E4%B8%8A%E5%85%A8%E9%83%BD%E4%B8%8D%E6%98%AF%E4%BA%BA_hu_a74f1d58c0db84ad.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -206,11 +206,11 @@
         </item>
         <item>
         <title>“我们小有所成”——近期情况小记（2025.5）</title>
-        <link>https://chasenkelp.github.io/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/</link>
+        <link>https://kelpfulblog.org/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/</link>
         <pubDate>Sun, 18 May 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://chasenkelp.github.io/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/</guid>
-        <description>&lt;img src="https://chasenkelp.github.io/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90.png" alt="Featured image of post “我们小有所成”——近期情况小记（2025.5）" /&gt;&lt;blockquote&gt;
+        <guid>https://kelpfulblog.org/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/</guid>
+        <description>&lt;img src="https://kelpfulblog.org/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90.png" alt="Featured image of post “我们小有所成”——近期情况小记（2025.5）" /&gt;&lt;blockquote&gt;
 &lt;p&gt;标题和封面的“我们小有所成”，可以说是变形金刚难以置信系列的中心思想之一，我非常喜欢。漂泊在宇宙中，任何一个小成功都值得被庆祝。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;可能这是此博客第一篇长篇的杂谈（流水账），因为我自认为正处于一个迷惘的阶段，而这个阶段又因为我找到了一份实习暂时告一段落。我不太敢回头，因为我害怕大脑解锁一些可怕的记忆，让我陷入压抑与焦虑。但是现在，我可以趁着激动的心情，静下来回头看看，看看我走了多远。&lt;/p&gt;
 
@@ -242,10 +242,10 @@
 &lt;p&gt;各种因素综合下来，我选择了 &lt;strong&gt;Go和C++&lt;/strong&gt; 的组合，项目是我练习用的玩具项目和实验室项目，还有一个完全不相关的实习经历（java web全栈）。&lt;/p&gt;
 &lt;p&gt;在两个多月的崩溃、大哭、暴食、自我怀疑、失眠等等之后，我也算是有了一份暑期实习！虽然这个岗位是我一开始完全没想到会走到最后的，我也没怎么检出过这方面。但经过又一段焦虑的大思考后，我感觉，既然面试问到的都是我会的问题、很早就给我下了oc，我觉得这是个很好地机会去多学多看。入职后我可能会写点博客说说感想吧！&lt;/p&gt;
 &lt;p&gt;总而言之下面就说一下我的一些经历吧。完全不适合参考！！！复刻难度极高！！！&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://chasenkelp.github.io/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E8%96%87%E8%96%87%E8%A2%AB%E6%9D%B0%E5%90%93%E6%99%95.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kelpfulblog.org/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E8%96%87%E8%96%87%E8%A2%AB%E6%9D%B0%E5%90%93%E6%99%95.png&#34;
 	width=&#34;1911&#34;
 	height=&#34;618&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E8%96%87%E8%96%87%E8%A2%AB%E6%9D%B0%E5%90%93%E6%99%95_hu_b3e8ba9c5449d011.png 480w, https://chasenkelp.github.io/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E8%96%87%E8%96%87%E8%A2%AB%E6%9D%B0%E5%90%93%E6%99%95_hu_a304a217ca444607.png 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E8%96%87%E8%96%87%E8%A2%AB%E6%9D%B0%E5%90%93%E6%99%95_hu_b3e8ba9c5449d011.png 480w, https://kelpfulblog.org/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E8%96%87%E8%96%87%E8%A2%AB%E6%9D%B0%E5%90%93%E6%99%95_hu_a304a217ca444607.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;薇薇被杰吓晕&#34;
@@ -296,10 +296,10 @@
 &lt;/ul&gt;
 &lt;p&gt;总之后面在一次次面试中，我也能明确能感觉到我在慢慢提升，我所学的也都是很有用的专业知识，对于难以集中注意力的我来讲，能短时间内接受了这么多知识，真的很不容易！&lt;/p&gt;
 &lt;p&gt;此外，这算是第一次真正与社会打交道的机会，我可以了解商业公司的招聘标准，可以从反问中了解一些工业软件的流程，并且评估我喜欢的感兴趣的岗位。在面试的时候遇到了很多很好的面试官，在我紧张的时候给了我很多鼓励，他们说我已经很厉害很好了，是今年他们在面试过程中最早面到的本科生。不管是不是真心的，但是我真的受到了一百分的激励！&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://chasenkelp.github.io/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E5%85%AC%E4%B8%BB%E5%9C%A8%E9%9B%B7%E5%87%BB%E9%9D%A2%E5%89%8D%E5%8F%91%E7%99%AB.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kelpfulblog.org/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E5%85%AC%E4%B8%BB%E5%9C%A8%E9%9B%B7%E5%87%BB%E9%9D%A2%E5%89%8D%E5%8F%91%E7%99%AB.png&#34;
 	width=&#34;1902&#34;
 	height=&#34;975&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E5%85%AC%E4%B8%BB%E5%9C%A8%E9%9B%B7%E5%87%BB%E9%9D%A2%E5%89%8D%E5%8F%91%E7%99%AB_hu_5422414499a24732.png 480w, https://chasenkelp.github.io/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E5%85%AC%E4%B8%BB%E5%9C%A8%E9%9B%B7%E5%87%BB%E9%9D%A2%E5%89%8D%E5%8F%91%E7%99%AB_hu_fd2ca84740949fd0.png 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E5%85%AC%E4%B8%BB%E5%9C%A8%E9%9B%B7%E5%87%BB%E9%9D%A2%E5%89%8D%E5%8F%91%E7%99%AB_hu_5422414499a24732.png 480w, https://kelpfulblog.org/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E5%85%AC%E4%B8%BB%E5%9C%A8%E9%9B%B7%E5%87%BB%E9%9D%A2%E5%89%8D%E5%8F%91%E7%99%AB_hu_fd2ca84740949fd0.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;公主在雷击面前发癫&#34;
@@ -316,10 +316,10 @@
 &lt;p&gt;但是在遭遇了一些挫折之后，可以精神上采用狗子心态，相信这是狗氏运营鸡爪流，马上就会出老蒲扇、天灾、血脉年代等等等&amp;hellip;（玩舟玩的&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;最开始我还下载了小红书、牛客等，也加了就业群，希望可以获得更多的资讯，看看面经之类的，但是我发现我真的无法接受国内部分理工男那种说话方式，如果你知道我在说什么。让人滋生一些莫名其妙的焦虑，还有很多奇怪的表达，没有一点正面作用。所以我决定把这些软件卸载了，专注于自己，防止过多的垃圾信息污染。&lt;strong&gt;因为每一个人的目标和起点可能都差别巨大，但是在网上的一句情绪化发言不需要展示任何自己的背景，也不需要任何责任，所以对个人而言这些信息的价值远远赶不上它的毒性&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;我越来越能理解瓦伦小亲亲的精神状态，她的心态真的值得我去学习：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://chasenkelp.github.io/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E7%93%A6%E4%BC%A6%E5%AF%B9aja.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://kelpfulblog.org/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E7%93%A6%E4%BC%A6%E5%AF%B9aja.jpg&#34;
 	width=&#34;4096&#34;
 	height=&#34;2288&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E7%93%A6%E4%BC%A6%E5%AF%B9aja_hu_5770e8f67e0ba6f0.jpg 480w, https://chasenkelp.github.io/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E7%93%A6%E4%BC%A6%E5%AF%B9aja_hu_551fb0fbe7b104db.jpg 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E7%93%A6%E4%BC%A6%E5%AF%B9aja_hu_5770e8f67e0ba6f0.jpg 480w, https://kelpfulblog.org/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E7%93%A6%E4%BC%A6%E5%AF%B9aja_hu_551fb0fbe7b104db.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;瓦伦对aja.jpg&#34;
@@ -340,10 +340,10 @@
 &lt;/h2&gt;&lt;p&gt;不知不觉，截至年初，我法语已经学了一年了！虽然进度很慢，但是我很喜欢学习的过程，正向反馈很多，只是近期太忙了，进度又慢了不少，而且找不到时间和地方练语音，只能在食堂练习（笑）。总之，希望可以在大学毕业之前考一次TCF！&lt;/p&gt;
 &lt;p&gt;另外死亡搁浅2和丝之歌快来吧，等死我了😭&lt;/p&gt;
 &lt;p&gt;总之，后面就要去实习了，去看看是干啥的，祝我好运吧！&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://chasenkelp.github.io/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E7%93%A6%E4%BC%A6%E5%A4%A7%E6%98%8E%E6%98%9F.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://kelpfulblog.org/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E7%93%A6%E4%BC%A6%E5%A4%A7%E6%98%8E%E6%98%9F.jpg&#34;
 	width=&#34;3644&#34;
 	height=&#34;4086&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E7%93%A6%E4%BC%A6%E5%A4%A7%E6%98%8E%E6%98%9F_hu_a85779a4379b512b.jpg 480w, https://chasenkelp.github.io/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E7%93%A6%E4%BC%A6%E5%A4%A7%E6%98%8E%E6%98%9F_hu_e9ad502636a61c2a.jpg 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E7%93%A6%E4%BC%A6%E5%A4%A7%E6%98%8E%E6%98%9F_hu_a85779a4379b512b.jpg 480w, https://kelpfulblog.org/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/%E7%93%A6%E4%BC%A6%E5%A4%A7%E6%98%8E%E6%98%9F_hu_e9ad502636a61c2a.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;瓦伦大明星.jpg&#34;
@@ -358,10 +358,10 @@
         </item>
         <item>
         <title>SAST工具：Semgrep初期调研报告</title>
-        <link>https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/</link>
+        <link>https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/</link>
         <pubDate>Fri, 26 Jul 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/</guid>
+        <guid>https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/</guid>
         <description>&lt;h2 id=&#34;优势&#34;&gt;优势
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;它是开源的。&lt;/li&gt;
@@ -413,10 +413,10 @@ Semgrep Supply Chain（Semgrep供应链管理软件）能够分析锁定文件�
 &lt;/ul&gt;
 &lt;h2 id=&#34;language-support-支持语言&#34;&gt;Language support 支持语言
 &lt;/h2&gt;&lt;p&gt;成熟等级解释：
-&lt;img src=&#34;https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912185025.png&#34;
+&lt;img src=&#34;https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912185025.png&#34;
 	width=&#34;1226&#34;
 	height=&#34;764&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912185025_hu_878c70dac3a953f.png 480w, https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912185025_hu_e00c06be591bdfc5.png 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912185025_hu_878c70dac3a953f.png 480w, https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912185025_hu_e00c06be591bdfc5.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -586,10 +586,10 @@ Maturity level 成熟等级 Lockfile-only: Rust(Cargo§), Dart(Pub), Elixir(Hex)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;命令行出现下图显示结果（WSL+VScode环境）表示正在扫描中。
-&lt;img src=&#34;https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240911174212.png&#34;
+&lt;img src=&#34;https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240911174212.png&#34;
 	width=&#34;2810&#34;
 	height=&#34;1657&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240911174212_hu_59372c57b17c9a4a.png 480w, https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240911174212_hu_8459f829ae7320fb.png 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240911174212_hu_59372c57b17c9a4a.png 480w, https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240911174212_hu_8459f829ae7320fb.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -669,10 +669,10 @@ Maturity level 成熟等级 Lockfile-only: Rust(Cargo§), Dart(Pub), Elixir(Hex)
 &lt;/div&gt;&lt;h4 id=&#34;在线查看&#34;&gt;在线查看
 &lt;/h4&gt;&lt;p&gt;在 &lt;a class=&#34;link&#34; href=&#34;https://semgrep.dev/login&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Semgrep AppSec 平台&lt;/a&gt;可以浏览该账号所有项目使用所有产品的扫描结果并进行过滤等操作：
-&lt;img src=&#34;https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912173859.png&#34;
+&lt;img src=&#34;https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912173859.png&#34;
 	width=&#34;3760&#34;
 	height=&#34;1928&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912173859_hu_244649b75dc03002.png 480w, https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912173859_hu_cce140fb9a8e3fb0.png 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912173859_hu_244649b75dc03002.png 480w, https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240912173859_hu_cce140fb9a8e3fb0.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -695,10 +695,10 @@ Maturity level 成熟等级 Lockfile-only: Rust(Cargo§), Dart(Pub), Elixir(Hex)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;下图为对样例规则的测试：
-&lt;img src=&#34;https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240913183324.png&#34;
+&lt;img src=&#34;https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240913183324.png&#34;
 	width=&#34;2530&#34;
 	height=&#34;1684&#34;
-	srcset=&#34;https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240913183324_hu_ef331982eb31e79e.png 480w, https://chasenkelp.github.io/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240913183324_hu_4cfa8c788781a876.png 1024w&#34;
+	srcset=&#34;https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240913183324_hu_ef331982eb31e79e.png 480w, https://kelpfulblog.org/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/20240913183324_hu_4cfa8c788781a876.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
