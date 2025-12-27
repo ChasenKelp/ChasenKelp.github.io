@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>年终总结 on 仿生寿喜森梦见赛博柚子醋</title>
+        <link>https://kelpfulblog.org/categories/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
+        <description>Recent content in 年终总结 on 仿生寿喜森梦见赛博柚子醋</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>ChasenKelp</copyright>
+        <lastBuildDate>Sat, 27 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://kelpfulblog.org/categories/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>“非常兴奋。”——我的2025年</title>
+        <link>https://kelpfulblog.org/p/%E9%9D%9E%E5%B8%B8%E5%85%B4%E5%A5%8B%E6%88%91%E7%9A%842025%E5%B9%B4/</link>
+        <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://kelpfulblog.org/p/%E9%9D%9E%E5%B8%B8%E5%85%B4%E5%A5%8B%E6%88%91%E7%9A%842025%E5%B9%B4/</guid>
+        <description>&lt;img src="https://kelpfulblog.org/p/%E9%9D%9E%E5%B8%B8%E5%85%B4%E5%A5%8B%E6%88%91%E7%9A%842025%E5%B9%B4/%E9%9D%9E%E5%B8%B8%E5%85%B4%E5%A5%8B.png" alt="Featured image of post “非常兴奋。”——我的2025年" /&gt;&lt;p&gt;其实我一个月前就打算写一篇日常博客，但是就这么咕到了年末，晕了啊！&lt;del&gt;其实这一篇也是我读法语课文读到发狂了才开始写的哈哈没想到吧&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;因为是年终总结，所以我不会写大段的文字，而是通过关键词来回忆这一年的事情，同时展望明年！可读性比较差，完全面向我自己和我的朋友！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;标题和封面来自我们尊敬的感知器教授，同时也是我的偶像。他在面对小诸葛创造的颠覆常识的科学奇观时，只是淡淡地表示“非常兴奋”，属实iconic，我希望我也能以这样的心态对待接下来的一年。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;作为一名准工程师&#34;&gt;作为一名准工程师&amp;hellip;
+&lt;/h2&gt;&lt;h3 id=&#34;学习&#34;&gt;学习
+&lt;/h3&gt;&lt;h4 id=&#34;专业知识&#34;&gt;专业知识
+&lt;/h4&gt;&lt;p&gt;今年内说是我专业水平进步得最快的一年都不为过，因为为了准备实习面试，高强度刷了很多题，背了很多八股，复习了很多学过的基础知识。其中大部分基础知识都是依靠八股博客、机械工业出版社系列黑皮书和实际应用来巩固理解的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;C++：刷题语言，也是未来工作语言。主要靠啃老本，通过网上的技术博客巩固基础
+&lt;ul&gt;
+&lt;li&gt;看/正在看的书：《C++ Primer Plus》《Effective Modern C++》《C++ Concurrency In Action》&lt;/li&gt;
+&lt;li&gt;练习的项目：&lt;a class=&#34;link&#34; href=&#34;https://github.com/DoctorWkt/acwj&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DoctorWkt/acwj: A Compiler Writing Journey&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Go：练手语言，用来熟悉Web后端开发流程和做轻量demo
+&lt;ul&gt;
+&lt;li&gt;看/正在看的书：《writing an INTERPRETER in go》&lt;/li&gt;
+&lt;li&gt;6.824在给自己挖坑之后终究未能完成，希望明年可以做一做（又挖坑）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;OCaml：还没有完全入门的语言，用来理解函数式思想
+&lt;ul&gt;
+&lt;li&gt;看/正在看的书：《&lt;a class=&#34;link&#34; href=&#34;https://usr.lmf.cnrs.fr/lpo/lpo.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;lpo.pdf&lt;/a&gt;》&lt;/li&gt;
+&lt;li&gt;油管上也有不错的网课&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因为课程安排和科研需要，系统地学习了机器学习、软件测试和编译原理，机器学习课程获得了不错的成绩，同时完成了一个股票预测主题的课程设计；编译原理课和科研组员同学一起学习，使用的是NJU蚂蚁老师的课程&lt;a class=&#34;link&#34; href=&#34;https://github.com/courses-at-nju-by-hfwei/compilers-lectures?tab=readme-ov-file&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;courses-at-nju-by-hfwei&lt;/a&gt;，很有收获！🥳&lt;/p&gt;
+&lt;p&gt;同时，我也进行了很多关于领域的思考。关于大陆计算机教育与就业方向的问题我不再赘述，在年初的时候我飘忽不定，不知道自己未来要从事什么样的工作，但作为一个非常信任自己理性思考及价值判断产生的结果的人，我还是赌对了，找到了我喜欢的工作内容，也许在明年毕业之后，我也可以骄傲地说，我是一名「系统软件工程师」！&lt;/p&gt;
+&lt;h4 id=&#34;法语&#34;&gt;法语
+&lt;/h4&gt;&lt;p&gt;今年的法语进度是A2-&amp;gt;B1，龟速前进中！&lt;/p&gt;
+&lt;p&gt;开始学习B1之后，感觉内容一下子就多了很多，生词变多了，语法和时态变多了，课文听力也变长了😵‍💫&lt;/p&gt;
+&lt;p&gt;练习语音听力的时候也经常崩溃，觉得自己很笨，反复听了很多遍还是听不懂读不顺，在跨阶段的时候因为欠了太多练习册作业，还花了一个月时间还债。但是后来在一篇听力中，发现我竟然在第二遍就大概理解了文章的意思，又自信爆表对自己充满信心！&lt;/p&gt;
+&lt;p&gt;这一年最大的挑战之一，还是如何在如何平衡工作和学习，“工作”在这里指功利性的不得不做的行动，“学习”指的是我自愿选择的自我提升行为。说直白点就是我需要在找实习、实习和完成学业之间找到空闲穿插我的法语学习，这其实挺难的，因为实际上过班的都懂，上完班之后很容易完全陷入低质量的休闲方式中，如刷视频，我认为打游戏都是更为高质量的休闲方式，而腾出自己的休息时间去学习额外的东西就更难了。所以这是个需要不断调整，与自己和解的过程，不去每件事过度push自己，多收集正面反馈，哄自己学，慢慢找到规律合理的时间规划方式。&lt;/p&gt;
+&lt;p&gt;我个人对未来工作后的几个设想：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一周至少推进两课法语，一课周末，一课周中。课程作业在周中抽空完成。&lt;/li&gt;
+&lt;li&gt;每月选一个周末去法盟玩。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;总之新的一年继续加油😼️&lt;/p&gt;
+&lt;h4 id=&#34;科研&#34;&gt;科研
+&lt;/h4&gt;&lt;p&gt;今年感觉自己的水平有很大的提升！基础知识层面，其实一直是在碎片化地学习，但意外地又感受到了本专业中那种“通透感”，在很多小科中找到了思维方法上的关联。&lt;/p&gt;
+&lt;p&gt;在年初的时候我明确感觉到，我在这个领域只算一个非常初级的入门者，因为在面试的时候，有面试官问到科研相关的事情，一个10层深度的问题，我只能说个2-3层，再去解释就说不清楚了，通常这种时刻最感到尴尬和无力，因为不能向别人证明自己的能力，又像是给自己挖了个坑。做组内总结的ppt时，我很惊讶，我竟然有那么多事情是在今年内干的！到现在，我甚至认为我已经可以称得上一个小师了！😎️&lt;/p&gt;
+&lt;p&gt;在找实习和实习的时候，我几乎完全搁置了科研的内容，只是偶尔听听组会，翻阅一些文字上的内容。虽然我实习的内容和我的科研领域可以说没有半点关系，但我还是止不住思考，一些可能存在的应用场景和钻研的方向，同时意外发现公司内部有不少同领域的人，也有不少资源可以去学习，我认为这对我而言是个足够大的平台。也许，我也真的挺喜欢这个方向。希望现在的方向可以做下去！&lt;/p&gt;
+&lt;h4 id=&#34;maybe这个博客&#34;&gt;maybe，这个博客？
+&lt;/h4&gt;&lt;p&gt;今年重启了我的博客，做了装修，又开始重新分享一些内容，同时有了一个很有小巧思的域名，太让人有成就感了！希望我新的一年可以更新更多博客🥺&lt;/p&gt;
+&lt;h2 id=&#34;休闲娱乐&#34;&gt;休闲娱乐
+&lt;/h2&gt;&lt;p&gt;分享一首我今年很爱听的哥特冷潮歌曲，让我爱上了这个乐队！&lt;/p&gt;
+
+
+
+&lt;iframe src=&#34;https://open.spotify.com/embed/track/0lpVseQIlmdJyoWUNLHkpV&#34;
+    width=&#34;100%&#34;
+    height=&#34;80px&#34;
+    frameborder=&#34;0&#34;
+    allowtransparency=&#34;true&#34;
+    allow=&#34;encrypted-media&#34;&gt;&lt;/iframe&gt;
+
+
+&lt;h3 id=&#34;电影主要是恐怖片&#34;&gt;电影（主要是恐怖片）
+&lt;/h3&gt;&lt;p&gt;不知道为什么，今年好像格外喜欢伪记录恐怖片，可能是因为看了墓地邂逅之后就上瘾了吧😸️我补齐了致命录像带系列，鬼娃系列，变种女狼系列，TXQ系列和墓地邂逅系列，都非常喜欢（我甚至记录了我个人对致命录像带系列每个短片和主题的评价，怕太巨魔了就不放出来了hhh）！但是相比与去年，我反倒是没看太多今年的恐怖片（倒是看了不少新的TV show），所以除了我上面说的这些系列恐怖片，我再推荐几个我今年看完后很爱的吧！&lt;/p&gt;
+&lt;p&gt;怪奇收割，也是伪记录恐怖片，整体架构是一个伪刑事犯罪访谈节目。制作非常的精良，有点克苏鲁元素，有一些精美和新颖的死亡场景，片尾曲超级超级好听，期待系列的下一部作品🥺&lt;/p&gt;
+ 
+ 
+
+
+
+ 
+     
+
+
+
+
+
+
+
+
+
+&lt;p style=&#34;text-align: center&#34;&gt;
+  &lt;small&gt;Failed to fetch content, please check the API validity.&lt;/small&gt;
+&lt;/p&gt;
+
+&lt;p&gt;双峰与火同行，可能完全不需要我推荐吧！但是我有幸在电影资料馆看了全片，真的是特别特别好的体验，也是我最喜欢的林奇电影（我没看过几部林奇）。看完后我听了很多关于林奇创作思路的解读，我也同样迷恋「一个死去却好像从未离去的神秘女孩」「潜藏在生活场景里的邪恶」「诡异的四维空间」这些概念，所以这部算是让我真正理解林奇的电影！我并没有看过TV，后面有空一定会补。&lt;/p&gt;
+ 
+ 
+
+
+
+ 
+     
+
+
+
+
+
+
+
+
+
+&lt;p style=&#34;text-align: center&#34;&gt;
+  &lt;small&gt;Failed to fetch content, please check the API validity.&lt;/small&gt;
+&lt;/p&gt;
+
+&lt;p&gt;美国玛丽，god&amp;hellip;&amp;hellip;就像变种女狼一样，看完后难以面对这汹涌的感情。我认为这不算是一部身体恐怖片，更像是一种伪传记片？这部作品就是导演Soska姐妹为女主演凯瑟琳伊莎贝尔量身打造的个人秀电影，充满对非主流亚文化群体的关爱，某种程度是写给同温层的电影。但是在这之外，哥特唯美的画面和iconic的造型也都是看点。强烈推荐😭️（一定要配合变种女狼食用）&lt;/p&gt;
+ 
+ 
+
+
+
+ 
+     
+
+
+
+
+
+
+
+
+
+&lt;p style=&#34;text-align: center&#34;&gt;
+  &lt;small&gt;Failed to fetch content, please check the API validity.&lt;/small&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&#34;游戏&#34;&gt;游戏
+&lt;/h3&gt;&lt;p&gt;黎明杀机害死我了。因为FNAF的联动又回坑了黎明杀机，但是没买FNAF联动反而买了行尸走肉和变装魔神的联动&amp;hellip;&amp;hellip;好想找人联机啊！！！&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://kelpfulblog.org/p/%E9%9D%9E%E5%B8%B8%E5%85%B4%E5%A5%8B%E6%88%91%E7%9A%842025%E5%B9%B4/steam%E6%80%BB%E7%BB%93.png&#34;
+	width=&#34;3564&#34;
+	height=&#34;1763&#34;
+	srcset=&#34;https://kelpfulblog.org/p/%E9%9D%9E%E5%B8%B8%E5%85%B4%E5%A5%8B%E6%88%91%E7%9A%842025%E5%B9%B4/steam%E6%80%BB%E7%BB%93_hu_a03208c219f3df3d.png 480w, https://kelpfulblog.org/p/%E9%9D%9E%E5%B8%B8%E5%85%B4%E5%A5%8B%E6%88%91%E7%9A%842025%E5%B9%B4/steam%E6%80%BB%E7%BB%93_hu_4e39695e34d4b359.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;202&#34;
+		data-flex-basis=&#34;485px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;hades2也开始玩了，坐牢享受角色互动中！明年再坐丝之歌的牢吧！btw死亡搁浅2啥时候上PC😭️我好难受我要玩！&lt;/p&gt;
+&lt;h3 id=&#34;不正经阅读&#34;&gt;不正经阅读
+&lt;/h3&gt;&lt;p&gt;今年好像并没有读什么闲书，但是我又开始看古希腊悲剧戏剧了，又复习了一遍莎乐美，接下来的一年会继续读完几则古希腊悲剧！我认为悲剧的样本很有参考性，能给我很多思考现代作品的角度。&lt;/p&gt;
+&lt;p&gt;另一件令人激动的事，我淘到了市面上不常见的，我们的垮掉派偶像威廉拔了死的两部著作的实体书！令人开心啊！&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://kelpfulblog.org/p/%E9%9D%9E%E5%B8%B8%E5%85%B4%E5%A5%8B%E6%88%91%E7%9A%842025%E5%B9%B4/burroughs.png&#34;
+	width=&#34;1235&#34;
+	height=&#34;1182&#34;
+	srcset=&#34;https://kelpfulblog.org/p/%E9%9D%9E%E5%B8%B8%E5%85%B4%E5%A5%8B%E6%88%91%E7%9A%842025%E5%B9%B4/burroughs_hu_70409b4239b0061.png 480w, https://kelpfulblog.org/p/%E9%9D%9E%E5%B8%B8%E5%85%B4%E5%A5%8B%E6%88%91%E7%9A%842025%E5%B9%B4/burroughs_hu_96ebd61a9a878d2c.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;104&#34;
+		data-flex-basis=&#34;250px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;就是因为没读什么书，所以感觉自己的表达水平有所下降，想要发表观点的时候也不像去年那样从容，希望明年能有空摄入一些中文的研究性读物。&lt;/p&gt;
+&lt;h3 id=&#34;同人&#34;&gt;同人
+&lt;/h3&gt;&lt;p&gt;我的年度cp可能是dayasco，因为很期待AS10（看完就失望了），又经历了很多抓马比如bosco被黑叉封号之类的hhh，有一段时间满脑子都在想这两个女孩儿🥺两个宝宝又同时上dragrace，大卖特卖后都被节目组陷害。还好两位事业运都不错，希望后面越来越幸福，永远都是好朋友，cp粉会默默祝福的😭️😭️&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://kelpfulblog.org/p/%E9%9D%9E%E5%B8%B8%E5%85%B4%E5%A5%8B%E6%88%91%E7%9A%842025%E5%B9%B4/dayasco.jpg&#34;
+	width=&#34;4096&#34;
+	height=&#34;2730&#34;
+	srcset=&#34;https://kelpfulblog.org/p/%E9%9D%9E%E5%B8%B8%E5%85%B4%E5%A5%8B%E6%88%91%E7%9A%842025%E5%B9%B4/dayasco_hu_be31e8515e0d7a74.jpg 480w, https://kelpfulblog.org/p/%E9%9D%9E%E5%B8%B8%E5%85%B4%E5%A5%8B%E6%88%91%E7%9A%842025%E5%B9%B4/dayasco_hu_9689adcc2974d982.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;女孩儿们&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;150&#34;
+		data-flex-basis=&#34;360px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;（今年又看了来自深渊然后嬷上了瓦兹强，丑男又害死我了）&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;关于我自己&#34;&gt;关于，我自己
+&lt;/h2&gt;&lt;h3 id=&#34;精神世界&#34;&gt;精神世界
+&lt;/h3&gt;&lt;p&gt;天啊，为了回顾我这一年的精神状态，我翻了下这一年的嘟文，发现最糟糕的时候，基本都是工作/实习没有确定的时候。因为家庭、经济状况和未来选择等因素，我这一年可以说是从一只崩溃易碎的小潮虫成长成了一只很难杀的大蟑螂（？）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;不管上班再怎么辛苦，我也觉得比上学好太多了&lt;/strong&gt;。在我目前的人生阶段，上学几乎都需要家里提供财务支持，这两个因素叠加在一起，让我出于严重的不安与焦虑中。我记得在年初和找实习的时候，每天都会哭一次，充满自怨自艾和悲观的想法，哭的时候就是在想为什么我这么苦，为什么我要经历这些，为什么我不能像别的正常人一样正常地活。站在那时候被我骚扰的人的角度，比如我的朋友，和我爹，他们一方面都被这种巨大的负面情绪影响了，一方面也会在安慰我的同时不理解我到底为什么这么想，比如为什么我会产生一些很像网左的想法（？）。其实我并不是真的那样想，但类似尼采的观点，&lt;strong&gt;有些想法，有些观点，就像是麻醉剂一样，会在极端恶劣的条件下让人好受一点&lt;/strong&gt;。我在脱离某种情绪和环境后，并不会责怪麻醉剂本身，相反，我会清晰地意识到麻醉剂的优点和恐怖，就好比自伤的人是为了求生而不是求死。在平静的状态下，作为一个逻辑与理性主导的人，我可以正视自己的想法与观点，&lt;strong&gt;但我绝不会苛责或者向别人解释使用了麻醉剂的我自己&lt;/strong&gt;。没有经历过终究难以感同身受。也许未来我也会因为各种不确定而烦恼，但有了能赚钱的工作，确实让我有了很大的勇气，让我敢去思考一些更远的事情，钱永远是一个普通人的底气。&lt;/p&gt;
+&lt;p&gt;在今年我可以说是度过了最糟糕的生日，但我在那一天精神上剪掉了脐带，被父母评价为冷血的人。未来我也许会感激这一点，因为现在的我能够更为理性地看待社会关系，也更明白“真心换真心”的重要性。&lt;/p&gt;
+&lt;p&gt;如果我说什么东西帮助我走出来阴霾，我可能会说，《鲁保罗变装皇后秀》😂️但事实就是这样的！我从看人妖秀中汲取了很多力量，queer community的生存哲学也很大程度影响了我，学会自嘲、毒舌，抱团取暖，笑对人生&amp;hellip;&amp;hellip;我会一直践行这些课题！&lt;/p&gt;
+&lt;p&gt;天啊，是在是太沉重了，我保证后面没有沉重的内容了！&lt;/p&gt;
+&lt;p&gt;在实习期间结识了很多很好的同事，大家对我很好，也让我学到很多东西，希望明年还可以和他们见面！&lt;/p&gt;
+&lt;p&gt;找实习期间的事情就不细说了，可以见我之前的博客-&amp;gt;&lt;a class=&#34;link&#34; href=&#34;https://kelpfulblog.org/p/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90%E8%BF%91%E6%9C%9F%E6%83%85%E5%86%B5%E5%B0%8F%E8%AE%B02025.5/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;“我们小有所成”——近期情况小记（2025.5）&lt;/a&gt;。但是真的很感谢我的导师，他很厉害，和我说了很多鼓励我的话，让我很感动！还有我爹，我当时一打电话就大哭，然后他一针见血地骂我几句，我大脑就降温了，很神秘！还有我朋友们（包括网友），听了我很多牢骚，但是又一直陪着我鼓励我，感激不尽！🐈️明年也要在一起！&lt;/p&gt;
+&lt;h3 id=&#34;朋友&#34;&gt;朋友
+&lt;/h3&gt;&lt;p&gt;今年和之前的朋友关系都还很好，也决心断掉一些学校里的“朋友”，又结识了很多网友，结识的理由也许是口嗨、法语，同人、技术等等，和大家一起talking shit真的很开心！😸️希望明年可以和大家继续在一起，请大家继续分享生活，我很爱看😭️😭️&lt;/p&gt;
+&lt;h3 id=&#34;财务&#34;&gt;财务
+&lt;/h3&gt;&lt;p&gt;今年我开始正视理财这个事情，开始购买基金产品，关注公司的财报和股市图，学习一些普通人理财内容。在明年我也有一些新的理财计划，也许到时候可以单独写个blog，期待吧！😤️（挖坑）&lt;/p&gt;
+&lt;h2 id=&#34;明年的flag&#34;&gt;明年的flag
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;顺利毕业&lt;/li&gt;
+&lt;li&gt;顺利入职&lt;/li&gt;
+&lt;li&gt;hades2通关一次结局&lt;/li&gt;
+&lt;li&gt;完成法语B1的课（差一点上完也行！）&lt;/li&gt;
+&lt;li&gt;把我写了一半的blog补完&lt;/li&gt;
+&lt;li&gt;读完OCaml的入门书&lt;/li&gt;
+&lt;li&gt;搞点小项目&lt;/li&gt;
+&lt;li&gt;好好运动&lt;/li&gt;
+&lt;li&gt;好好理财&lt;/li&gt;
+&lt;li&gt;和朋友们在一起&lt;/li&gt;
+&lt;li&gt;大家都好好生活！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://kelpfulblog.org/p/%E9%9D%9E%E5%B8%B8%E5%85%B4%E5%A5%8B%E6%88%91%E7%9A%842025%E5%B9%B4/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90.png&#34;
+	width=&#34;1314&#34;
+	height=&#34;897&#34;
+	srcset=&#34;https://kelpfulblog.org/p/%E9%9D%9E%E5%B8%B8%E5%85%B4%E5%A5%8B%E6%88%91%E7%9A%842025%E5%B9%B4/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90_hu_41038bbc5e768859.png 480w, https://kelpfulblog.org/p/%E9%9D%9E%E5%B8%B8%E5%85%B4%E5%A5%8B%E6%88%91%E7%9A%842025%E5%B9%B4/%E6%88%91%E4%BB%AC%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90_hu_7e50ba7165203e9f.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;146&#34;
+		data-flex-basis=&#34;351px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
