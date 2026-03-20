@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="函数式编程小白的一次自学尝试">
+<title>刷题法入门 OCaml 函数式编程（一）</title>
+
+<link rel='canonical' href='https://kelpfulblog.org/p/%E5%88%B7%E9%A2%98%E6%B3%95%E5%85%A5%E9%97%A8-ocaml-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E4%B8%80/'>
+
+<link rel="stylesheet" href="/scss/style.min.03c4f8e6b6380137977b8a025b80d1bad1f387d2dbca73019d1ebdddd1f44082.css"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+    var int = setInterval(fixCount, 100);
+    var busuanziSiteOffset =  10000 
+    var busuanziVisitorOffset =  null 
+        function fixCount() {
+      if ($("#busuanzi_container_site_pv").css("display") != "none") {
+        clearInterval(int);
+        $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + busuanziSiteOffset);
+        $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + busuanziVisitorOffset);
+      }
+    }
+    });
+</script><meta property='og:title' content="刷题法入门 OCaml 函数式编程（一）">
+<meta property='og:description' content="函数式编程小白的一次自学尝试">
+<meta property='og:url' content='https://kelpfulblog.org/p/%E5%88%B7%E9%A2%98%E6%B3%95%E5%85%A5%E9%97%A8-ocaml-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E4%B8%80/'>
+<meta property='og:site_name' content='仿生寿喜森梦见赛博柚子醋'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='CS' /><meta property='article:tag' content='技术' /><meta property='article:tag' content='编程语言' /><meta property='article:published_time' content='2026-03-20T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-03-20T00:00:00&#43;00:00'/><meta property='og:image' content='https://kelpfulblog.org/p/%E5%88%B7%E9%A2%98%E6%B3%95%E5%85%A5%E9%97%A8-ocaml-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E4%B8%80/%E9%80%9F%E9%80%9F%E5%A5%BD%E5%8E%89%E5%AE%B3.png' />
+<meta name="twitter:title" content="刷题法入门 OCaml 函数式编程（一）">
+<meta name="twitter:description" content="函数式编程小白的一次自学尝试"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://kelpfulblog.org/p/%E5%88%B7%E9%A2%98%E6%B3%95%E5%85%A5%E9%97%A8-ocaml-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E4%B8%80/%E9%80%9F%E9%80%9F%E5%A5%BD%E5%8E%89%E5%AE%B3.png' />
+    <link rel="shortcut icon" href="/spider-svgrepo-com.svg" />
+<script src="https://kit.fontawesome.com/d6918d2354.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avat1_hu_eca51697ebca1021.jpg" width="300"
+                            height="277" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍵</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">仿生寿喜森梦见赛博柚子醋</a></h1>
+            <h2 class="site-description">我素森森</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://bsky.app/profile/chasenthekelp.bsky.social'
+                        target="_blank"
+                        title="Bluesky"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4.907 3.44c.709.12 1.533.501 2.576 1.247C9.28 5.97 10.769 7.739 12 9.564c1.231-1.825 2.72-3.593 4.517-4.877c1.043-.746 1.867-1.127 2.576-1.248c.767-.13 1.29.065 1.615.2C21.717 4.06 22 5.225 22 6.215c0 .201-.086 1.302-.185 2.36c-.052.546-.11 1.108-.166 1.577c-.053.428-.115.88-.19 1.133a4.33 4.33 0 0 1-1.951 2.517c.937.707 1.277 1.856.928 2.984c-.597 1.924-2.737 4.397-4.835 4.618c-1.773.186-2.935-1.325-3.601-2.76c-.666 1.435-1.828 2.946-3.6 2.76c-2.099-.22-4.24-2.694-4.836-4.618c-.35-1.128-.01-2.277.928-2.984a4.33 4.33 0 0 1-1.95-2.517c-.076-.253-.138-.705-.19-1.133a61 61 0 0 1-.167-1.577C2.085 7.517 2 6.416 2 6.215c0-.99.283-2.155 1.292-2.576c.326-.135.847-.33 1.615-.2M4.05 6.916c.064.818.18 2.108.288 2.992c.032.268.055.545.122.807c.397 1.34 1.929 2.082 3.686 1.887a1 1 0 0 1 .257 1.983c-.756.112-3.315.357-2.928 1.607c.357 1.151 1.848 3.087 3.134 3.222c.928.097 1.5-1.394 1.766-2.045c.275-.674.488-1.38.668-1.982a1 1 0 0 1 1.916 0c.18.602.393 1.308.668 1.982c.266.651.838 2.142 1.766 2.045c1.286-.135 2.777-2.07 3.134-3.222c.387-1.25-2.172-1.495-2.928-1.607a1 1 0 0 1 .257-1.983c1.757.195 3.289-.547 3.686-1.887c.069-.266.089-.536.122-.807a80 80 0 0 0 .288-2.992c.037-.468.247-1.637-.522-1.506c-.286.049-.823.241-1.749.903c-1.943 1.389-3.705 3.513-4.789 5.64a1 1 0 0 1-1.782 0c-1.084-2.127-2.846-4.251-4.789-5.64c-.926-.662-1.463-.854-1.749-.903c-.784-.134-.559 1.034-.522 1.506"/></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='/index.xml'
+                        target="_blank"
+                        title="RSS"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M3 3c9.941 0 18 8.059 18 18h-3c0-8.284-6.716-15-15-15zm0 7c6.075 0 11 4.925 11 11h-3a8 8 0 0 0-8-8zm0 7a4 4 0 0 1 4 4H3z"/></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E%E6%A3%AE%E6%A3%AE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E7%88%B1%E7%94%A8%E7%89%A9%E8%AE%B0%E5%BD%95/' >
+                
+                
+                
+                    <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1762254972918" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7916" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M928.922574 99.438757l-67.214844 0c-15.159258 0-28.122501 10.878768-30.755468 25.803689l-15.35164 86.96977L222.034932 212.212216c-17.253966 0-31.233352 13.979386-31.233352 31.233352s13.979386 31.233352 31.233352 31.233352l582.540589 0-49.773613 281.97407c-8.103562 37.283138-29.688159 81.4388-86.410022 81.4388l-375.389646 0c-32.819476 0-57.504692-5.947456-76.324316-82.851986-0.11154-0.477884-0.243547-0.945535-0.376577-1.413186l-90.304725-306.293965c-4.89038-16.531512-22.23542-25.986861-38.797631-21.12718-16.541745 4.880147-25.997094 22.245653-21.12718 38.797631l90.101087 305.603233c15.830547 64.286142 44.582381 129.752156 136.829342 129.752156l375.389646 0c74.79959 0 129.97626-49.107441 147.605779-131.348514 0.081864-0.376577 0.152473-0.741897 0.213871-1.118474l71.697949-406.186046 41.014112 0c17.253966 0 31.233352-13.979386 31.233352-31.233352S946.17654 99.438757 928.922574 99.438757z" fill="#999999" p-id="7917"></path><path d="M361.610828 333.028862c-17.253966 0-31.233352 13.979386-31.233352 31.233352l0 30.470989c0 17.253966 13.979386 31.233352 31.233352 31.233352 17.253966 0 31.233352-13.979386 31.233352-31.233352l0-30.470989C392.84418 347.008248 378.86377 333.028862 361.610828 333.028862z" fill="#999999" p-id="7918"></path><path d="M605.376691 333.028862c-17.253966 0-31.233352 13.979386-31.233352 31.233352l0 30.470989c0 17.253966 13.979386 31.233352 31.233352 31.233352 17.253966 0 31.233352-13.979386 31.233352-31.233352l0-30.470989C636.610042 347.008248 622.630656 333.028862 605.376691 333.028862z" fill="#999999" p-id="7919"></path><path d="M560.28982 474.086505c-14.539134-9.292644-33.845853-5.083785-43.149752 9.455349-0.121773 0.193405-13.379729 19.449981-33.968649 19.449981-20.008706 0-32.453133-18.127869-33.287127-19.378349-9.17087-14.407128-28.274974-18.809391-42.824341-9.750061-14.650675 9.099239-19.155269 28.355815-10.044774 43.00649 11.214413 18.047028 41.980113 48.588625 86.156242 48.588625 43.952025 0 75.094302-30.308283 86.572728-48.222281C579.048045 502.717589 574.818721 483.389382 560.28982 474.086505z" fill="#999999" p-id="7920"></path><path d="M296.093649 739.519854c-51.668777 0-93.700055 42.031279-93.700055 93.700055 0 51.668777 42.031279 93.700055 93.700055 93.700055 51.668777 0 93.700055-42.031279 93.700055-93.700055C389.793704 781.550109 347.762425 739.519854 296.093649 739.519854zM296.093649 864.453261c-17.223267 0-31.233352-14.010085-31.233352-31.233352 0-17.223267 14.010085-31.233352 31.233352-31.233352s31.233352 14.010085 31.233352 31.233352C327.327 850.443176 313.316915 864.453261 296.093649 864.453261z" fill="#999999" p-id="7921"></path><path d="M670.89387 739.519854c-51.668777 0-93.700055 42.031279-93.700055 93.700055 0 51.668777 42.031279 93.700055 93.700055 93.700055 51.668777 0 93.700055-42.031279 93.700055-93.700055C764.593925 781.550109 722.56367 739.519854 670.89387 739.519854zM670.89387 864.453261c-17.223267 0-31.233352-14.010085-31.233352-31.233352 0-17.223267 14.010085-31.233352 31.233352-31.233352s31.233352 14.010085 31.233352 31.233352C702.127222 850.443176 688.117137 864.453261 670.89387 864.453261z" fill="#999999" p-id="7922"></path></svg>
+                
+                <span>爱用物记录</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E8%8F%9C%E8%B0%B1/' >
+                
+                
+                
+                    <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1762254663922" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3400" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M923.5 868h-823c-19.24 0-34.9-15.33-34.9-34.17V298c0-18.84 15.65-34.17 34.9-34.17h37.73v22.39H100.5c-6.9 0-12.51 5.29-12.51 11.78v535.83c0 6.5 5.61 11.78 12.51 11.78h823c6.9 0 12.51-5.29 12.51-11.78V298c0-6.5-5.61-11.78-12.51-11.78h-40.32v-22.39h40.32c19.24 0 34.9 15.33 34.9 34.17v535.83c0 18.84-15.66 34.17-34.9 34.17z" fill="#999999" p-id="3401"></path><path d="M657.8 280.27v73.34h-54.9v-73.34h54.9m0-22.39h-54.9c-12.36 0-22.39 10.02-22.39 22.39v73.34c0 12.36 10.02 22.39 22.39 22.39h54.9c12.36 0 22.39-10.02 22.39-22.39v-73.34c-0.01-12.37-10.03-22.39-22.39-22.39zM817.76 291.51h-82.32c-6.18 0-11.19-5.01-11.19-11.19s5.01-11.19 11.19-11.19h82.32c6.18 0 11.19 5.01 11.19 11.19s-5.01 11.19-11.19 11.19zM817.76 360.02h-82.32c-6.18 0-11.19-5.01-11.19-11.19s5.01-11.19 11.19-11.19h82.32c6.18 0 11.19 5.01 11.19 11.19s-5.01 11.19-11.19 11.19zM713.92 649.28H591.71c-6.18 0-11.19-5.01-11.19-11.19s5.01-11.19 11.19-11.19h122.21c6.18 0 11.19 5.01 11.19 11.19s-5.01 11.19-11.19 11.19zM828.49 649.28h-56.68c-6.18 0-11.19-5.01-11.19-11.19s5.01-11.19 11.19-11.19h56.68c6.18 0 11.19 5.01 11.19 11.19 0.01 6.18-5 11.19-11.19 11.19zM657.93 462.46h-66.22c-6.18 0-11.19-5.01-11.19-11.19s5.01-11.19 11.19-11.19h66.22c6.18 0 11.19 5.01 11.19 11.19s-5.01 11.19-11.19 11.19zM811.14 462.46h-98.08c-6.18 0-11.19-5.01-11.19-11.19s5.01-11.19 11.19-11.19h98.08c6.18 0 11.19 5.01 11.19 11.19s-5.01 11.19-11.19 11.19zM758.78 572.69H591.71c-6.18 0-11.19-5.01-11.19-11.19s5.01-11.19 11.19-11.19h167.08c6.18 0 11.19 5.01 11.19 11.19s-5.02 11.19-11.2 11.19z" fill="#999999" p-id="3402"></path><path d="M810.99 561.5m-11.19 0a11.19 11.19 0 1 0 22.38 0 11.19 11.19 0 1 0-22.38 0Z" fill="#999999" p-id="3403"></path><path d="M397.75 440.99h-31.31c-28.06 0-49.23-14.4-49.23-33.5V261.7c0-6.18 5.01-11.19 11.19-11.19s11.19 5.01 11.19 11.19v145.78c0 3.82 10.45 11.12 26.84 11.12h31.31c16.39 0 26.84-7.3 26.84-11.12V261.7c0-6.18 5.01-11.19 11.19-11.19s11.19 5.01 11.19 11.19v145.78c0.01 19.1-21.15 33.51-49.21 33.51zM256.04 522.77h-35.11c-14.25 0-25.85-11.6-25.85-25.85V309.94c0-32.11 26.12-58.23 58.23-58.23h2.73c14.25 0 25.85 11.6 25.85 25.85v219.36c0 14.25-11.59 25.85-25.85 25.85z m-2.73-248.67c-19.76 0-35.84 16.08-35.84 35.84v186.98c0 1.91 1.55 3.46 3.46 3.46h35.11c1.91 0 3.46-1.55 3.46-3.46V277.56c0-1.91-1.55-3.46-3.46-3.46h-2.73z" fill="#999999" p-id="3404"></path><path d="M281.89 496.29H259.5v172.06c0 6.18 5.01 11.19 11.19 11.19s11.19-5.01 11.19-11.19V496.29zM393.29 431.26H370.9v238.55c0 6.18 5.01 11.19 11.19 11.19s11.19-5.01 11.19-11.19V431.26zM382.09 246.23c-6.18 0-11.19 5.01-11.19 11.19V375.8c0 6.18 5.01 11.19 11.19 11.19s11.19-5.01 11.19-11.19V257.43c0.01-6.19-5-11.2-11.19-11.2z" fill="#999999" p-id="3405"></path><path d="M145.12 764.47c-11.6 0-21.04-10.06-21.04-22.42V190.33c0-18.56 13.85-33.66 30.88-33.66h295.27c38.73 0 70.25 35.25 70.25 78.59v518.02H498.1V235.26c0-30.99-21.47-56.2-47.86-56.2H154.96c-4.6 0-8.49 5.16-8.49 11.27v551.72c0 0.33 0.09 0.54 0.13 0.58-0.13-0.18-0.71-0.55-1.48-0.55v22.39z" fill="#999999" p-id="3406"></path><path d="M878.73 764.44v-22.39c-0.68 0-1.2 0.32-1.32 0.48 0 0 0.12-0.17 0.12-0.53V189.68c0-6.12-4.03-11.3-8.79-11.3H568.97c-26.89 0-48.76 25.25-48.76 56.28V742c0 0.37 0.11 0.53 0.12 0.54-0.12-0.16-0.63-0.48-1.32-0.48v22.39c-11.68 0-21.19-10.07-21.19-22.44V234.67c0-43.38 31.92-78.67 71.15-78.67h299.77c17.19 0 31.18 15.11 31.18 33.69V742c0 12.38-9.51 22.44-21.19 22.44z" fill="#999999" p-id="3407"></path><path d="M445.3 744.15c28.3 0 52.03 19.92 57.91 46.48H146.53v-46.48H445.3m0-22.38H124.14v91.25H527v-9.56c0-45.12-36.58-81.69-81.7-81.69z" fill="#999999" p-id="3408"></path><path d="M877.47 744.15v46.48H520.7c5.88-26.56 29.61-46.48 57.91-46.48h298.86m22.39-22.38H578.61c-45.12 0-81.7 36.58-81.7 81.7v9.56h402.94v-91.26h0.01z" fill="#999999" p-id="3409"></path></svg>
+                
+                <span>菜谱</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#这不是严谨的教程">这不是严谨的教程</a></li>
+    <li><a href="#入门博客的入门要求">入门博客的入门要求</a></li>
+    <li><a href="#思维转换p1001-ab-问题">思维转换：P1001 A+B 问题</a></li>
+    <li><a href="#递归链表和匹配p1046-陶陶摘苹果">递归、链表和匹配：P1046 陶陶摘苹果</a></li>
+    <li><a href="#结构p5740-最厉害的学生">结构：P5740 最厉害的学生</a></li>
+    <li><a href="#高级匹配p1042-乒乓球">高级匹配：P1042 乒乓球</a></li>
+    <li><a href="#结语">结语</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E5%88%B7%E9%A2%98%E6%B3%95%E5%85%A5%E9%97%A8-ocaml-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E4%B8%80/">
+                <img src="/p/%E5%88%B7%E9%A2%98%E6%B3%95%E5%85%A5%E9%97%A8-ocaml-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E4%B8%80/%E9%80%9F%E9%80%9F%E5%A5%BD%E5%8E%89%E5%AE%B3_hu_3acb8b3470b350e4.png"
+                        srcset="/p/%E5%88%B7%E9%A2%98%E6%B3%95%E5%85%A5%E9%97%A8-ocaml-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E4%B8%80/%E9%80%9F%E9%80%9F%E5%A5%BD%E5%8E%89%E5%AE%B3_hu_3acb8b3470b350e4.png 800w, /p/%E5%88%B7%E9%A2%98%E6%B3%95%E5%85%A5%E9%97%A8-ocaml-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E4%B8%80/%E9%80%9F%E9%80%9F%E5%A5%BD%E5%8E%89%E5%AE%B3_hu_2d8a5485fccaf5f.png 1600w"
+                        width="800" 
+                        height="266" 
+                        loading="lazy"
+                        alt="Featured image of post 刷题法入门 OCaml 函数式编程（一）" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" >
+                学习记录
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%88%B7%E9%A2%98%E6%B3%95%E5%85%A5%E9%97%A8-ocaml-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E4%B8%80/">刷题法入门 OCaml 函数式编程（一）</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            函数式编程小白的一次自学尝试
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 20, 2026</time>
+            </div>
+        
+
+        
+        <div>
+            <svg t="1728665493176"
+    class="icon icon-tabler icon-tabler-clock" 
+    viewBox="0 0 1024 1024"
+    xmlns="http://www.w3.org/2000/svg" 
+    p-id="6574" 
+    fill="currentColor" >
+<path d="M640 42.666667a42.666667 42.666667 0 0 1 30.165333 12.501333l213.333334 213.333333A42.666667 42.666667 0 0 1 896 298.666667v597.333333a85.333333 85.333333 0 0 1-85.333333 85.333333H213.333333a85.333333 85.333333 0 0 1-85.333333-85.333333V128a85.333333 85.333333 0 0 1 85.333333-85.333333z m-17.706667 85.333333H213.333333v768h597.333334V316.373333L622.293333 128z m69.504 256.938667a42.666667 42.666667 0 0 1 32.768 50.688l-64 298.666666c-8.448 39.424-61.866667 46.208-79.872 10.112l-68.522666-137.002666-68.48 137.002666c-17.28 34.517333-66.858667 29.824-78.549334-5.162666l-1.365333-4.949334-64-298.666666a42.666667 42.666667 0 1 1 83.456-17.92l38.485333 179.754666 52.309334-104.533333a42.666667 42.666667 0 0 1 73.6-4.693333l2.730666 4.693333 52.224 104.533333 38.528-179.754666a42.666667 42.666667 0 0 1 50.688-32.768z" p-id="6575" >
+</path>
+</svg>
+
+            <time class="article-time--reading">
+                本文共 3507 字
+            </time>
+        </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 7 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="这不是严谨的教程">这不是严谨的教程
+</h2><p>我曾经多次尝试入门 OCaml，几乎都以失败告终😹️。表现为看不懂别人的代码，同时完全无法上手实践。对我个人而言，除了缺少中文资料，我尝试过的入门方法有以下弊端：</p>
+<ul>
+<li>看CS3110：看得太累，记住得太少</li>
+<li>看流行的OCaml教材：难以坚持</li>
+<li>看项目：看不懂，太多specific的东西干扰理解</li>
+</ul>
+<p>我觉得这些问题很大程度上是因为<em>思维上和习惯上都无法适应函数式编程</em>。</p>
+<p>所以在多次尝试后，我终于找到了适合自己的学习方式：<strong>刷I/O基础题 + LLM辅助理解 + 参考教材或文字资料</strong>。（实在是太中国学生了😹️）</p>
+<p>所以可以把这篇博客理解成<strong>入门OCaml的拐杖</strong>，<strong>不要当成严谨的教程！</strong>
+因为我也是在边学边写，所以有些地方会不简洁、不准确。我也是个小白，我不是竞赛大神，我也会犯错。<strong>细节和理论还是请大家看主流的教材或官方文档</strong>。我只是希望这篇文章可以帮助到和我脑电波同频的学习者，让我们都能成功上手函数式编程😸️。</p>
+<p>想要了解一些概念性东西的读者可以看下我之前的文章<a class="link" href="https://kelpfulblog.org/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/"  target="_blank" rel="noopener"
+    >函数式编程大辨析</a>。当然函数式编程的灵魂还是得积累项目和理论经验。</p>
+<h2 id="入门博客的入门要求">入门博客的入门要求
+</h2><ul>
+<li>需要你自己完成最基础的环境配置</li>
+<li>需要懂一种高级编程语言（C++最好）且有数据结构和算法基础</li>
+<li>最好浏览过OCaml官网的入门教材，对一些概念有一个大体的认知</li>
+<li>注册一个洛谷账号</li>
+</ul>
+<p>我后面都会以C++作为对比案例，同时部分内容和大体的顺序参考 <a class="link" href="https://cs3110.github.io/textbook"  target="_blank" rel="noopener"
+    >CS3110教材</a>，大家可以打开放在边上参考！</p>
+<h2 id="思维转换p1001-ab-问题">思维转换：P1001 A+B 问题
+</h2><p>我是一个C++选手，既然OCaml可以支持命令式，那我决定先写一个超级命令式的程序！</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-OCaml" data-lang="OCaml"><span class="line"><span class="cl"><span class="k">let</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">=</span> <span class="nn">Scanf</span><span class="p">.</span><span class="n">scanf</span> <span class="s2">&#34;%d %d&#34;</span> <span class="o">(</span><span class="k">fun</span> <span class="n">x</span> <span class="n">y</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">let</span> <span class="n">ans</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">print_int</span> <span class="s2">&#34;%d&#34;</span> <span class="n">ans</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>很好。但其实这个程序会报错，因为OCaml的编译器不会通过换行或者分号来识别一个语句的结束，所以上面这段程序大意是：<strong>第一句是一个函数，第二行是个函数，第三行是和第二行连在一起的</strong>。还有一个问题，就是对于<code>print_int</code>这一系列带个下划线的print函数，它们的参数只有一个。所以来看下我的修改：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-OCaml" data-lang="OCaml"><span class="line"><span class="cl"><span class="k">let</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">=</span> <span class="nn">Scanf</span><span class="p">.</span><span class="n">scanf</span> <span class="s2">&#34;%d %d&#34;</span> <span class="o">(</span><span class="k">fun</span> <span class="n">x</span> <span class="n">y</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">))</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">let</span> <span class="n">ans</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">print_int</span> <span class="n">ans</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>好的，加了<code>in</code>来圈定作用域之后，就解决了编译器无法识别语句结束的问题，但实际上这三行是一个完整的大句子，而不是命令式那样顺序执行，但编译器视角暂时放一放，我们先矫正一下思路。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-OCaml" data-lang="OCaml"><span class="line"><span class="cl"><span class="k">let</span> <span class="bp">()</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="nn">Scanf</span><span class="p">.</span><span class="n">scanf</span> <span class="s2">&#34;%d %d&#34;</span> <span class="o">(</span><span class="k">fun</span> <span class="n">a</span> <span class="n">b</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">print_int</span> <span class="o">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样算是一个比较函数式的程序了。思路上，我们不需要加法的结果来做任何事情，所以<code>let ()</code>可以暂时理解为<code>void</code>，或者理解成C++里的main函数。在得到两个输入后，通过一个匿名函数（<code>fun</code>引导）将两个输入数字的和打印出来。</p>
+<h2 id="递归链表和匹配p1046-陶陶摘苹果">递归、链表和匹配：P1046 陶陶摘苹果
+</h2><p>关于数据类型，我们一上来先学习一下 <strong>List</strong>，OCaml中的“数组”，但是称之为单向链表可能更合适。首先先来看点需要用到的符号：</p>
+<ul>
+<li><code>[]</code> 空表</li>
+<li><code>元素::链表</code> Cons符，可以用于取出头结点，也可以用于新增一个头结点</li>
+</ul>
+<blockquote>
+<p>The cons operator <code>::</code> is right associative, meaning that <code>e1 :: e2 :: e3</code> is understood as <code>e1 :: (e2 :: e3)</code>, not as <code>(e1 :: e2) :: e3</code>.</p></blockquote>
+<p>下面开始看这道题，最直观的思路就是用数组存储10个苹果，然后用循环、分支比较和计数器解决。</p>
+<p>首先是用数组存储，其实就是一段<strong>递归</strong>程序，值得注意的是每次递归的最后一行都是<code>新读取的元素a -&gt; 上次一递归中的list</code>这样的结构。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-OCaml" data-lang="OCaml"><span class="line"><span class="cl"><span class="k">let</span> <span class="k">rec</span> <span class="n">read_apple</span> <span class="n">n</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="n">n</span> <span class="o">=</span> <span class="n">0</span> <span class="k">then</span> <span class="bp">[]</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="k">let</span> <span class="n">a</span> <span class="o">=</span> <span class="nn">Scanf</span><span class="p">.</span><span class="n">scanf</span> <span class="s2">&#34; %d&#34;</span> <span class="o">(</span><span class="k">fun</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">)</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="o">::</span> <span class="n">read_apple</span> <span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">1</span><span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>ok，停一下，假如你是手敲的代码，是否疑惑<code>&quot; %d&quot;</code>前面为什么有个空格？或者像我一样直接忽略了，然后发现输入有问题😹️</p>
+<p>其实这个空格代表了吃掉前方所有连续的空白字符（包括空格、换行符、制表符等），直到遇到非空白字符为止，所以一定要加上。</p>
+<p>解决了输入，来看一下这个题的核心。这里我们用到了<code>match...with...</code>，和C++中的<code>switch</code>不同，这里的模式匹配（Pattern Matching）不只是if语法糖，具体有点难解释，有点类似可以同时执行判断和变量操作，而且很好的一点是，<strong>如果漏掉了某类情况，编译器会直接报错</strong>。总之看下我们的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-OCaml" data-lang="OCaml"><span class="line"><span class="cl"><span class="k">let</span> <span class="k">rec</span> <span class="n">count_apple</span> <span class="n">lst</span> <span class="n">max_h</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">match</span> <span class="n">lst</span> <span class="k">with</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="bp">[]</span> <span class="o">-&gt;</span> <span class="n">0</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">h</span> <span class="o">::</span> <span class="n">t</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">let</span> <span class="n">cur_can_pick</span> <span class="o">=</span> <span class="k">if</span> <span class="n">h</span> <span class="o">&lt;=</span> <span class="n">max_h</span> <span class="k">then</span> <span class="n">1</span> <span class="k">else</span> <span class="n">0</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cur_can_pick</span> <span class="o">+</span> <span class="n">count_apple</span> <span class="n">t</span> <span class="n">max_h</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>参数1 lst 是一个 List，情况1代表空，情况2代表它能够取出来一个头元素 h，即非空（因为 Cons 符决定了，右边的那个 t 肯定是个 List，所以即使 t 是空的，<code>h :: t</code>这个 List 也至少有 h 这个元素在）。搞明白了<code>match...with...</code>，其余的就好办多了，我们这个函数最终返回的结果就是每次递归<code>cur_can_pick</code>的累加。</p>
+<p>好的，综上所述，这道题的完整代码就是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-OCaml" data-lang="OCaml"><span class="line"><span class="cl"><span class="k">let</span> <span class="k">rec</span> <span class="n">read_apple</span> <span class="n">n</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="n">n</span> <span class="o">=</span> <span class="n">0</span> <span class="k">then</span> <span class="bp">[]</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="k">let</span> <span class="n">a</span> <span class="o">=</span> <span class="nn">Scanf</span><span class="p">.</span><span class="n">scanf</span> <span class="s2">&#34; %d&#34;</span> <span class="o">(</span><span class="k">fun</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">)</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="o">::</span> <span class="n">read_apple</span> <span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">1</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">let</span> <span class="k">rec</span> <span class="n">count_apple</span> <span class="n">lst</span> <span class="n">max_h</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">match</span> <span class="n">lst</span> <span class="k">with</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="bp">[]</span> <span class="o">-&gt;</span> <span class="n">0</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">h</span> <span class="o">::</span> <span class="n">t</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">let</span> <span class="n">cur_can_pick</span> <span class="o">=</span> <span class="k">if</span> <span class="n">h</span> <span class="o">&lt;=</span> <span class="n">max_h</span> <span class="k">then</span> <span class="n">1</span> <span class="k">else</span> <span class="n">0</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cur_can_pick</span> <span class="o">+</span> <span class="n">count_apple</span> <span class="n">t</span> <span class="n">max_h</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">let</span> <span class="bp">()</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">let</span> <span class="n">apples</span> <span class="o">=</span> <span class="n">read_apple</span> <span class="n">10</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">  <span class="k">let</span> <span class="n">reach</span> <span class="o">=</span> <span class="nn">Scanf</span><span class="p">.</span><span class="n">scanf</span> <span class="s2">&#34; %d&#34;</span> <span class="o">(</span><span class="k">fun</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">)</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">  <span class="k">let</span> <span class="n">max_h</span> <span class="o">=</span> <span class="n">reach</span> <span class="o">+</span> <span class="n">30</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">  <span class="k">let</span> <span class="n">ans</span> <span class="o">=</span>  <span class="n">count_apple</span> <span class="n">apples</span> <span class="n">max_h</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">  <span class="n">print_int</span> <span class="n">ans</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="结构p5740-最厉害的学生">结构：P5740 最厉害的学生
+</h2><p>接下来我们通过这道题实践一下 Records，其实把它理解成 C++ 中的结构体就可以了，没有太难。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-OCaml" data-lang="OCaml"><span class="line"><span class="cl"><span class="k">type</span> <span class="n">student</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">name</span> <span class="o">:</span> <span class="kt">string</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">chinese</span> <span class="o">:</span> <span class="kt">int</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">math</span> <span class="o">:</span> <span class="kt">int</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">english</span> <span class="o">:</span> <span class="kt">int</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">total</span> <span class="o">:</span> <span class="kt">int</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">let</span> <span class="k">rec</span> <span class="n">find_best</span> <span class="n">remaining</span> <span class="n">best_stu</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="n">remaining</span> <span class="o">=</span> <span class="n">0</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="n">best_stu</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="k">let</span> <span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="n">c</span><span class="o">,</span> <span class="n">m</span><span class="o">,</span> <span class="n">e</span><span class="o">)</span> <span class="o">=</span> <span class="nn">Scanf</span><span class="p">.</span><span class="n">scanf</span> <span class="s2">&#34; %s %d %d %d&#34;</span> <span class="o">(</span><span class="k">fun</span> <span class="n">n</span> <span class="n">c</span> <span class="n">m</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="n">c</span><span class="o">,</span> <span class="n">m</span><span class="o">,</span> <span class="n">e</span><span class="o">))</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">      <span class="k">let</span> <span class="n">stu</span> <span class="o">=</span> <span class="o">{</span><span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span> <span class="n">chinese</span> <span class="o">=</span> <span class="n">c</span><span class="o">;</span> <span class="n">math</span> <span class="o">=</span> <span class="n">m</span><span class="o">;</span> <span class="n">english</span> <span class="o">=</span> <span class="n">e</span><span class="o">;</span> <span class="n">total</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="n">m</span> <span class="o">+</span> <span class="n">e</span><span class="o">}</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">stu</span><span class="o">.</span><span class="n">total</span> <span class="o">&gt;</span> <span class="n">best_stu</span><span class="o">.</span><span class="n">total</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">          <span class="n">find_best</span> <span class="o">(</span><span class="n">remaining</span><span class="o">-</span><span class="n">1</span><span class="o">)</span> <span class="n">stu</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">          <span class="n">find_best</span> <span class="o">(</span><span class="n">remaining</span><span class="o">-</span><span class="n">1</span><span class="o">)</span> <span class="n">best_stu</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">let</span> <span class="bp">()</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">let</span> <span class="n">n</span> <span class="o">=</span> <span class="nn">Scanf</span><span class="p">.</span><span class="n">scanf</span> <span class="s2">&#34; %d&#34;</span> <span class="o">(</span><span class="k">fun</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">)</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="n">0</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="k">let</span> <span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">c</span><span class="o">,</span> <span class="n">m</span><span class="o">,</span> <span class="n">e</span><span class="o">)</span> <span class="o">=</span> <span class="nn">Scanf</span><span class="p">.</span><span class="n">scanf</span> <span class="s2">&#34; %s %d %d %d&#34;</span> <span class="o">(</span><span class="k">fun</span> <span class="n">n</span> <span class="n">c</span> <span class="n">m</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="n">c</span><span class="o">,</span> <span class="n">m</span><span class="o">,</span> <span class="n">e</span><span class="o">))</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">    <span class="k">let</span> <span class="n">first_stu</span> <span class="o">=</span> <span class="o">{</span> <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span> <span class="n">chinese</span> <span class="o">=</span> <span class="n">c</span><span class="o">;</span> <span class="n">math</span> <span class="o">=</span> <span class="n">m</span><span class="o">;</span> <span class="n">english</span> <span class="o">=</span> <span class="n">e</span><span class="o">;</span> <span class="n">total</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="n">m</span> <span class="o">+</span> <span class="n">e</span> <span class="o">}</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">    <span class="k">let</span> <span class="n">ans</span> <span class="o">=</span> <span class="n">find_best</span> <span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">1</span><span class="o">)</span> <span class="n">first_stu</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">    <span class="nn">Printf</span><span class="p">.</span><span class="n">printf</span> <span class="s2">&#34;%s %d %d %d</span><span class="se">\n</span><span class="s2">&#34;</span> <span class="n">ans</span><span class="o">.</span><span class="n">name</span> <span class="n">ans</span><span class="o">.</span><span class="n">chinese</span> <span class="n">ans</span><span class="o">.</span><span class="n">math</span> <span class="n">ans</span><span class="o">.</span><span class="n">english</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>我觉得这里除了在定义的时候使用 <code>:</code> ，实例化的时候使用 <code>=</code> 需要注意一下，别的没有什么思路上很难的地方。</p>
+<p>但是我一开始写的时候犯了个错误，我一开始写的是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-OCaml" data-lang="OCaml"><span class="line"><span class="cl"><span class="n">find_best</span> <span class="n">remaining</span><span class="o">-</span><span class="n">1</span> <span class="n">stu</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样会报错，为什么？我觉得可以理解为<strong>函数调用的优先级是最高的</strong>，所以编译器会先执行 <code>find_best remaining</code>，进入死循环。因此参数进行运算时，记得加上括号！</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-OCaml" data-lang="OCaml"><span class="line"><span class="cl"><span class="n">find_best</span> <span class="o">(</span><span class="n">remaining</span><span class="o">-</span><span class="n">1</span><span class="o">)</span> <span class="n">stu</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="高级匹配p1042-乒乓球">高级匹配：P1042 乒乓球
+</h2><p>好的，接下来就要上点难度了。一看这个题目就烦，因为有至少两个问题要解决：</p>
+<ol>
+<li>正确读取 E 之前的输入</li>
+<li>设计分数计算匹配机制</li>
+</ol>
+<p>如果是用C++写，大概的思路就是用一个 while 循环内，两个变量来做计分器。<del>怎么这么简单啊我哭了。</del></p>
+<p>那先来想下输入，直接放我的代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-OCaml" data-lang="OCaml"><span class="line"><span class="cl"><span class="k">let</span> <span class="k">rec</span> <span class="n">read_chars</span> <span class="bp">()</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">try</span>
+</span></span><span class="line"><span class="cl">    <span class="k">let</span> <span class="n">c</span> <span class="o">=</span> <span class="nn">Scanf</span><span class="p">.</span><span class="n">scanf</span> <span class="s2">&#34;%c&#34;</span> <span class="o">(</span><span class="k">fun</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">)</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">    <span class="k">match</span> <span class="n">c</span> <span class="k">with</span>
+</span></span><span class="line"><span class="cl">    <span class="o">|</span> <span class="sc">&#39;E&#39;</span> <span class="o">-&gt;</span> <span class="o">[</span><span class="sc">&#39;E&#39;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="o">|</span> <span class="sc">&#39;W&#39;</span> <span class="o">|</span> <span class="sc">&#39;L&#39;</span> <span class="o">-&gt;</span> <span class="n">c</span> <span class="o">::</span> <span class="n">read_chars</span> <span class="bp">()</span>
+</span></span><span class="line"><span class="cl">    <span class="o">|</span> <span class="o">_</span> <span class="o">-&gt;</span> <span class="n">read_chars</span> <span class="bp">()</span>
+</span></span><span class="line"><span class="cl">  <span class="k">with</span> <span class="nc">End_of_file</span> <span class="o">-&gt;</span> <span class="bp">[]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里涉及了很多要点：</p>
+<ul>
+<li>在OCaml的模式匹配中，下划线 <code>_</code> 可以作为一个占位符，代表我不关心的其他所有情况。</li>
+<li><code>try ... with End_of_file -&gt; []</code> 可以理解为C++中的 <code>try ... catch</code>，而这里的 <code>End_of_file</code> 是一个关键字，代表 EOF （End Of File）。</li>
+<li><code>'W' | 'L'</code> 是这两种情况走向同一个结果，匹配顺序是从左到右。</li>
+<li><code>read_chars ()</code> 里这个括号，实际上是一个值 unit，可以代表空参数列表，在这里用于告诉编译器这是个函数，不是个常量。</li>
+</ul>
+<p>这样在常规链表输入的基础上，判断了链表的终点E。</p>
+<p>接着是核心递归逻辑，有几种情况（模式）：</p>
+<ul>
+<li>华华或对手得分</li>
+<li>累计可以计算一次大比分</li>
+<li>识别到E，比赛结束</li>
+</ul>
+<p>模式理顺了之后就可以写代码了。这个递归函数肯定需要两个大比分和一个链表作为参数，但是累计大比分好像有点难办，因为<em>这涉及到数值和逻辑运算，不是单纯的匹配</em>。这时候可以用 <code>when</code> 关键字来限制匹配条件，在匹配的同时，又要满足后面的逻辑判断，才可以匹配成功。下面是代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-OCaml" data-lang="OCaml"><span class="line"><span class="cl"><span class="k">let</span> <span class="k">rec</span> <span class="n">play_11</span> <span class="n">lst</span> <span class="n">w</span> <span class="n">l</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">match</span> <span class="n">lst</span><span class="o">,</span> <span class="n">w</span><span class="o">,</span> <span class="n">l</span> <span class="k">with</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">lst</span><span class="o">,</span> <span class="n">w</span><span class="o">,</span> <span class="n">l</span> <span class="k">when</span> <span class="o">(</span><span class="n">w</span> <span class="o">&gt;=</span> <span class="n">11</span> <span class="o">&amp;&amp;</span> <span class="n">w</span> <span class="o">-</span> <span class="n">l</span> <span class="o">&gt;=</span> <span class="n">2</span><span class="o">)</span> <span class="o">||</span> <span class="o">(</span><span class="n">l</span> <span class="o">&gt;=</span> <span class="n">11</span> <span class="o">&amp;&amp;</span> <span class="n">l</span> <span class="o">-</span> <span class="n">w</span> <span class="o">&gt;=</span> <span class="n">2</span><span class="o">)</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nn">Printf</span><span class="p">.</span><span class="n">printf</span> <span class="s2">&#34;%d:%d</span><span class="se">\n</span><span class="s2">&#34;</span> <span class="n">w</span> <span class="n">l</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">play_11</span> <span class="n">lst</span> <span class="n">0</span> <span class="n">0</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="sc">&#39;E&#39;</span> <span class="o">::</span> <span class="o">_,</span> <span class="n">w</span><span class="o">,</span> <span class="n">l</span> <span class="o">-&gt;</span> <span class="nn">Printf</span><span class="p">.</span><span class="n">printf</span> <span class="s2">&#34;%d:%d</span><span class="se">\n</span><span class="s2">&#34;</span> <span class="n">w</span> <span class="n">l</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="sc">&#39;W&#39;</span> <span class="o">::</span> <span class="n">tail</span><span class="o">,</span> <span class="n">w</span><span class="o">,</span> <span class="n">l</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">play_11</span> <span class="n">tail</span> <span class="o">(</span> <span class="n">w</span> <span class="o">+</span> <span class="n">1</span> <span class="o">)</span> <span class="n">l</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="sc">&#39;L&#39;</span> <span class="o">::</span> <span class="n">tail</span><span class="o">,</span> <span class="n">w</span><span class="o">,</span> <span class="n">l</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">play_11</span> <span class="n">tail</span> <span class="n">w</span> <span class="o">(</span> <span class="n">l</span> <span class="o">+</span> <span class="n">1</span> <span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="bp">[]</span><span class="o">,</span> <span class="o">_,</span> <span class="o">_</span> <span class="o">-&gt;</span> <span class="bp">()</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="o">_</span> <span class="o">::</span> <span class="n">tail</span><span class="o">,</span> <span class="n">w</span><span class="o">,</span> <span class="n">l</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">play_11</span> <span class="n">tail</span> <span class="n">w</span> <span class="n">l</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>完整代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-OCaml" data-lang="OCaml"><span class="line"><span class="cl"><span class="k">let</span> <span class="k">rec</span> <span class="n">play_11</span> <span class="n">lst</span> <span class="n">w</span> <span class="n">l</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">match</span> <span class="n">lst</span><span class="o">,</span> <span class="n">w</span><span class="o">,</span> <span class="n">l</span> <span class="k">with</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">lst</span><span class="o">,</span> <span class="n">w</span><span class="o">,</span> <span class="n">l</span> <span class="k">when</span> <span class="o">(</span><span class="n">w</span> <span class="o">&gt;=</span> <span class="n">11</span> <span class="o">&amp;&amp;</span> <span class="n">w</span> <span class="o">-</span> <span class="n">l</span> <span class="o">&gt;=</span> <span class="n">2</span><span class="o">)</span> <span class="o">||</span> <span class="o">(</span><span class="n">l</span> <span class="o">&gt;=</span> <span class="n">11</span> <span class="o">&amp;&amp;</span> <span class="n">l</span> <span class="o">-</span> <span class="n">w</span> <span class="o">&gt;=</span> <span class="n">2</span><span class="o">)</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nn">Printf</span><span class="p">.</span><span class="n">printf</span> <span class="s2">&#34;%d:%d</span><span class="se">\n</span><span class="s2">&#34;</span> <span class="n">w</span> <span class="n">l</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">play_11</span> <span class="n">lst</span> <span class="n">0</span> <span class="n">0</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="sc">&#39;E&#39;</span> <span class="o">::</span> <span class="o">_,</span> <span class="n">w</span><span class="o">,</span> <span class="n">l</span> <span class="o">-&gt;</span> <span class="nn">Printf</span><span class="p">.</span><span class="n">printf</span> <span class="s2">&#34;%d:%d</span><span class="se">\n</span><span class="s2">&#34;</span> <span class="n">w</span> <span class="n">l</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="sc">&#39;W&#39;</span> <span class="o">::</span> <span class="n">tail</span><span class="o">,</span> <span class="n">w</span><span class="o">,</span> <span class="n">l</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">play_11</span> <span class="n">tail</span> <span class="o">(</span> <span class="n">w</span> <span class="o">+</span> <span class="n">1</span> <span class="o">)</span> <span class="n">l</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="sc">&#39;L&#39;</span> <span class="o">::</span> <span class="n">tail</span><span class="o">,</span> <span class="n">w</span><span class="o">,</span> <span class="n">l</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">play_11</span> <span class="n">tail</span> <span class="n">w</span> <span class="o">(</span> <span class="n">l</span> <span class="o">+</span> <span class="n">1</span> <span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="bp">[]</span><span class="o">,</span> <span class="o">_,</span> <span class="o">_</span> <span class="o">-&gt;</span> <span class="bp">()</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="o">_</span> <span class="o">::</span> <span class="n">tail</span><span class="o">,</span> <span class="n">w</span><span class="o">,</span> <span class="n">l</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">play_11</span> <span class="n">tail</span> <span class="n">w</span> <span class="n">l</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="k">let</span> <span class="k">rec</span> <span class="n">play_21</span> <span class="n">lst</span> <span class="n">w</span> <span class="n">l</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">match</span> <span class="n">lst</span><span class="o">,</span> <span class="n">w</span><span class="o">,</span> <span class="n">l</span> <span class="k">with</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">lst</span><span class="o">,</span> <span class="n">w</span><span class="o">,</span> <span class="n">l</span> <span class="k">when</span> <span class="o">(</span><span class="n">w</span> <span class="o">&gt;=</span> <span class="n">21</span> <span class="o">&amp;&amp;</span> <span class="n">w</span> <span class="o">-</span> <span class="n">l</span> <span class="o">&gt;=</span> <span class="n">2</span><span class="o">)</span> <span class="o">||</span> <span class="o">(</span><span class="n">l</span> <span class="o">&gt;=</span> <span class="n">21</span> <span class="o">&amp;&amp;</span> <span class="n">l</span> <span class="o">-</span> <span class="n">w</span> <span class="o">&gt;=</span> <span class="n">2</span><span class="o">)</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nn">Printf</span><span class="p">.</span><span class="n">printf</span> <span class="s2">&#34;%d:%d</span><span class="se">\n</span><span class="s2">&#34;</span> <span class="n">w</span> <span class="n">l</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">play_21</span> <span class="n">lst</span> <span class="n">0</span> <span class="n">0</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="sc">&#39;E&#39;</span> <span class="o">::</span> <span class="o">_,</span> <span class="n">w</span><span class="o">,</span> <span class="n">l</span> <span class="o">-&gt;</span> <span class="nn">Printf</span><span class="p">.</span><span class="n">printf</span> <span class="s2">&#34;%d:%d</span><span class="se">\n</span><span class="s2">&#34;</span> <span class="n">w</span> <span class="n">l</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="sc">&#39;W&#39;</span> <span class="o">::</span> <span class="n">tail</span><span class="o">,</span> <span class="n">w</span><span class="o">,</span> <span class="n">l</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">play_21</span> <span class="n">tail</span> <span class="o">(</span> <span class="n">w</span> <span class="o">+</span> <span class="n">1</span> <span class="o">)</span> <span class="n">l</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="sc">&#39;L&#39;</span> <span class="o">::</span> <span class="n">tail</span><span class="o">,</span> <span class="n">w</span><span class="o">,</span> <span class="n">l</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">play_21</span> <span class="n">tail</span> <span class="n">w</span> <span class="o">(</span> <span class="n">l</span> <span class="o">+</span> <span class="n">1</span> <span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="bp">[]</span><span class="o">,</span> <span class="o">_,</span> <span class="o">_</span> <span class="o">-&gt;</span> <span class="bp">()</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="o">_</span> <span class="o">::</span> <span class="n">tail</span><span class="o">,</span> <span class="n">w</span><span class="o">,</span> <span class="n">l</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">play_11</span> <span class="n">tail</span> <span class="n">w</span> <span class="n">l</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">let</span> <span class="k">rec</span> <span class="n">read_chars</span> <span class="bp">()</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">try</span>
+</span></span><span class="line"><span class="cl">    <span class="k">let</span> <span class="n">c</span> <span class="o">=</span> <span class="nn">Scanf</span><span class="p">.</span><span class="n">scanf</span> <span class="s2">&#34;%c&#34;</span> <span class="o">(</span><span class="k">fun</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">)</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">    <span class="k">match</span> <span class="n">c</span> <span class="k">with</span>
+</span></span><span class="line"><span class="cl">    <span class="o">|</span> <span class="sc">&#39;E&#39;</span> <span class="o">-&gt;</span> <span class="o">[</span><span class="sc">&#39;E&#39;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="o">|</span> <span class="sc">&#39;W&#39;</span> <span class="o">|</span> <span class="sc">&#39;L&#39;</span> <span class="o">-&gt;</span> <span class="n">c</span> <span class="o">::</span> <span class="n">read_chars</span> <span class="bp">()</span>
+</span></span><span class="line"><span class="cl">    <span class="o">|</span> <span class="o">_</span> <span class="o">-&gt;</span> <span class="n">read_chars</span> <span class="bp">()</span>
+</span></span><span class="line"><span class="cl">  <span class="k">with</span> <span class="nc">End_of_file</span> <span class="o">-&gt;</span> <span class="bp">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">let</span> <span class="bp">()</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">let</span> <span class="n">data</span> <span class="o">=</span> <span class="n">read_chars</span> <span class="bp">()</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">  <span class="n">play_11</span> <span class="n">data</span> <span class="n">0</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nn">Printf</span><span class="p">.</span><span class="n">printf</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">play_21</span> <span class="n">data</span> <span class="n">0</span> <span class="n">0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个案例算是初步看出点灵魂了，我个人觉得，C++是有点走一步看一步的，<strong>而OCaml更贴近状态机的本质，需要考虑整个数据空间</strong>。</p>
+<h2 id="结语">结语
+</h2><p>好了，第一期就到这里了！其实我狂写了这么多，也还没捋完cs3110的前3部分😹️。总之希望可以帮助到你，有任何想法请和我交流！后面我会持续更新的（大概。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/cs/">CS</a>
+        
+            <a href="/tags/%E6%8A%80%E6%9C%AF/">技术</a>
+        
+            <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E8%BE%A8%E6%9E%90/%E6%9B%B2%E8%BD%B4%E7%AE%B1%E9%9D%A2%E7%98%AB%E5%8F%88%E7%8A%AF%E4%BA%86.5d0e610e7f1aa691f1b56e057cbc5ee4_hu_a3c4e49dcb61349a.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 函数式编程大辨析"
+                        
+                        data-hash="md5-XQ5hDn8appHxtW4FfLxe5A==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">函数式编程大辨析</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/sast%E5%B7%A5%E5%85%B7semgrep%E5%88%9D%E6%9C%9F%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">SAST工具：Semgrep初期调研报告</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E6%B3%95%E8%AF%AD%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">从0开始的法语学习记录</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="ChasenKelp/ChasenKelp.github.io"
+    data-repo-id="R_kgDOLs5Xzg"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOLs5Xzs4CpjHl"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="en"
+    data-loading=""
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('preferred_color_scheme');
+            } else {
+                setGiscusTheme('preferred_color_scheme');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2026 ChasenKelp
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+    
+    <section class="totalcount">
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        发表了13篇文章 · 
+        共嘟嘟了34.70k字
+    </section>
+
+
+    
+    <section class="busuanzi">
+        <span id="busuanzi_container_site_pv" style='display:none'> 本站总访问量 <span id="busuanzi_value_site_pv"></span> 次 </span>·
+        <span id="busuanzi_container_site_uv" style='display:none'> 总访客数 <span id="busuanzi_value_site_uv"></span> 人</span>
+    </section>
+    
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
