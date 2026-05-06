@@ -7,7 +7,15 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>ChasenKelp</copyright>
-        <lastBuildDate>Fri, 20 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://kelpfulblog.org/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 06 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://kelpfulblog.org/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>大湾区挂壁行</title>
+        <link>https://kelpfulblog.org/p/%E5%A4%A7%E6%B9%BE%E5%8C%BA%E6%8C%82%E5%A3%81%E8%A1%8C/</link>
+        <pubDate>Wed, 06 May 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://kelpfulblog.org/p/%E5%A4%A7%E6%B9%BE%E5%8C%BA%E6%8C%82%E5%A3%81%E8%A1%8C/</guid>
+        <description>&lt;img src="https://kelpfulblog.org/p/%E5%A4%A7%E6%B9%BE%E5%8C%BA%E6%8C%82%E5%A3%81%E8%A1%8C/queensroad.png" alt="Featured image of post 大湾区挂壁行" /&gt;&lt;p&gt;因为急切地想要一张HSBC HK卡，所以在3月初和朋友计划了这次非常愉快（且疲惫）的三天两夜特种兵大湾区（广州香港）自由行，实在是太幸福了！🥳感觉非常有必要写一篇流水帐来记录这段美好时光🥰&lt;/p&gt;</description>
+        </item>
+        <item>
         <title>刷题法入门 OCaml 函数式编程（一）</title>
         <link>https://kelpfulblog.org/p/%E5%88%B7%E9%A2%98%E6%B3%95%E5%85%A5%E9%97%A8-ocaml-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E4%B8%80/</link>
         <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
